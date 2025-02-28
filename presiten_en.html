@@ -158,738 +158,7 @@
           me.path = component + "/" + component + "." + me.type;
         }
       };
-      YUI_config = {
-        debug: false,
-        base: "https:\/\/cdp.moeys.gov.kh\/lib\/yuilib\/3.17.2\/",
-        comboBase: "https:\/\/cdp.moeys.gov.kh\/theme\/yui_combo.php?",
-        combine: true,
-        filter: null,
-        insertBefore: "firstthemesheet",
-        groups: {
-          yui2: {
-            base: "https:\/\/cdp.moeys.gov.kh\/lib\/yuilib\/2in3\/2.9.0\/build\/",
-            comboBase: "https:\/\/cdp.moeys.gov.kh\/theme\/yui_combo.php?",
-            combine: true,
-            ext: false,
-            root: "2in3\/2.9.0\/build\/",
-            patterns: { "yui2-": { group: "yui2", configFn: yui1ConfigFn } },
-          },
-          moodle: {
-            name: "moodle",
-            base: "https:\/\/cdp.moeys.gov.kh\/theme\/yui_combo.php?m\/1737001920\/",
-            combine: true,
-            comboBase: "https:\/\/cdp.moeys.gov.kh\/theme\/yui_combo.php?",
-            ext: false,
-            root: "m\/1737001920\/",
-            patterns: {
-              "moodle-": { group: "moodle", configFn: yui2ConfigFn },
-            },
-            filter: null,
-            modules: {
-              "moodle-core-actionmenu": {
-                requires: ["base", "event", "node-event-simulate"],
-              },
-              "moodle-core-notification": {
-                requires: [
-                  "moodle-core-notification-dialogue",
-                  "moodle-core-notification-alert",
-                  "moodle-core-notification-confirm",
-                  "moodle-core-notification-exception",
-                  "moodle-core-notification-ajaxexception",
-                ],
-              },
-              "moodle-core-notification-dialogue": {
-                requires: [
-                  "base",
-                  "node",
-                  "panel",
-                  "escape",
-                  "event-key",
-                  "dd-plugin",
-                  "moodle-core-widget-focusafterclose",
-                  "moodle-core-lockscroll",
-                ],
-              },
-              "moodle-core-notification-alert": {
-                requires: ["moodle-core-notification-dialogue"],
-              },
-              "moodle-core-notification-confirm": {
-                requires: ["moodle-core-notification-dialogue"],
-              },
-              "moodle-core-notification-exception": {
-                requires: ["moodle-core-notification-dialogue"],
-              },
-              "moodle-core-notification-ajaxexception": {
-                requires: ["moodle-core-notification-dialogue"],
-              },
-              "moodle-core-languninstallconfirm": {
-                requires: [
-                  "base",
-                  "node",
-                  "moodle-core-notification-confirm",
-                  "moodle-core-notification-alert",
-                ],
-              },
-              "moodle-core-chooserdialogue": {
-                requires: ["base", "panel", "moodle-core-notification"],
-              },
-              "moodle-core-handlebars": {
-                condition: { trigger: "handlebars", when: "after" },
-              },
-              "moodle-core-event": { requires: ["event-custom"] },
-              "moodle-core-dragdrop": {
-                requires: [
-                  "base",
-                  "node",
-                  "io",
-                  "dom",
-                  "dd",
-                  "event-key",
-                  "event-focus",
-                  "moodle-core-notification",
-                ],
-              },
-              "moodle-core-formchangechecker": {
-                requires: ["base", "event-focus", "moodle-core-event"],
-              },
-              "moodle-core-lockscroll": { requires: ["plugin", "base-build"] },
-              "moodle-core-tooltip": {
-                requires: [
-                  "base",
-                  "node",
-                  "io-base",
-                  "moodle-core-notification-dialogue",
-                  "json-parse",
-                  "widget-position",
-                  "widget-position-align",
-                  "event-outside",
-                  "cache-base",
-                ],
-              },
-              "moodle-core-blocks": {
-                requires: [
-                  "base",
-                  "node",
-                  "io",
-                  "dom",
-                  "dd",
-                  "dd-scroll",
-                  "moodle-core-dragdrop",
-                  "moodle-core-notification",
-                ],
-              },
-              "moodle-core-maintenancemodetimer": {
-                requires: ["base", "node"],
-              },
-              "moodle-core-popuphelp": { requires: ["moodle-core-tooltip"] },
-              "moodle-core_availability-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "event-delegate",
-                  "panel",
-                  "moodle-core-notification-dialogue",
-                  "json",
-                ],
-              },
-              "moodle-backup-backupselectall": {
-                requires: ["node", "event", "node-event-simulate", "anim"],
-              },
-              "moodle-backup-confirmcancel": {
-                requires: [
-                  "node",
-                  "node-event-simulate",
-                  "moodle-core-notification-confirm",
-                ],
-              },
-              "moodle-course-management": {
-                requires: [
-                  "base",
-                  "node",
-                  "io-base",
-                  "moodle-core-notification-exception",
-                  "json-parse",
-                  "dd-constrain",
-                  "dd-proxy",
-                  "dd-drop",
-                  "dd-delegate",
-                  "node-event-delegate",
-                ],
-              },
-              "moodle-course-categoryexpander": {
-                requires: ["node", "event-key"],
-              },
-              "moodle-course-util": {
-                requires: ["node"],
-                use: ["moodle-course-util-base"],
-                submodules: {
-                  "moodle-course-util-base": {},
-                  "moodle-course-util-section": {
-                    requires: ["node", "moodle-course-util-base"],
-                  },
-                  "moodle-course-util-cm": {
-                    requires: ["node", "moodle-course-util-base"],
-                  },
-                },
-              },
-              "moodle-course-dragdrop": {
-                requires: [
-                  "base",
-                  "node",
-                  "io",
-                  "dom",
-                  "dd",
-                  "dd-scroll",
-                  "moodle-core-dragdrop",
-                  "moodle-core-notification",
-                  "moodle-course-coursebase",
-                  "moodle-course-util",
-                ],
-              },
-              "moodle-form-shortforms": {
-                requires: [
-                  "node",
-                  "base",
-                  "selector-css3",
-                  "moodle-core-event",
-                ],
-              },
-              "moodle-form-dateselector": {
-                requires: ["base", "node", "overlay", "calendar"],
-              },
-              "moodle-form-passwordunmask": { requires: [] },
-              "moodle-question-searchform": { requires: ["base", "node"] },
-              "moodle-question-chooser": {
-                requires: ["moodle-core-chooserdialogue"],
-              },
-              "moodle-question-preview": {
-                requires: [
-                  "base",
-                  "dom",
-                  "event-delegate",
-                  "event-key",
-                  "core_question_engine",
-                ],
-              },
-              "moodle-availability_badge-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_completion-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_coursecompleted-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_courseprogress-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_date-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "io",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_enrolmentmethod-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_grade-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_group-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_grouping-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_othercompleted-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_otherenrolled-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_password-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "event-valuechange",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_password-popup": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core-notification-dialogue",
-                  "io-base",
-                ],
-              },
-              "moodle-availability_profile-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_relativedate-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-availability_role-form": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "moodle-core_availability-form",
-                ],
-              },
-              "moodle-mod_assign-history": { requires: ["node", "transition"] },
-              "moodle-mod_attendance-groupfilter": {
-                requires: ["base", "node"],
-              },
-              "moodle-mod_checklist-linkselect": {
-                requires: ["node", "event-valuechange"],
-              },
-              "moodle-mod_customcert-rearrange": {
-                requires: ["dd-delegate", "dd-drag"],
-              },
-              "moodle-mod_quiz-modform": {
-                requires: ["base", "node", "event"],
-              },
-              "moodle-mod_quiz-questionchooser": {
-                requires: [
-                  "moodle-core-chooserdialogue",
-                  "moodle-mod_quiz-util",
-                  "querystring-parse",
-                ],
-              },
-              "moodle-mod_quiz-toolboxes": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "event-key",
-                  "io",
-                  "moodle-mod_quiz-quizbase",
-                  "moodle-mod_quiz-util-slot",
-                  "moodle-core-notification-ajaxexception",
-                ],
-              },
-              "moodle-mod_quiz-util": {
-                requires: ["node", "moodle-core-actionmenu"],
-                use: ["moodle-mod_quiz-util-base"],
-                submodules: {
-                  "moodle-mod_quiz-util-base": {},
-                  "moodle-mod_quiz-util-slot": {
-                    requires: ["node", "moodle-mod_quiz-util-base"],
-                  },
-                  "moodle-mod_quiz-util-page": {
-                    requires: ["node", "moodle-mod_quiz-util-base"],
-                  },
-                },
-              },
-              "moodle-mod_quiz-quizbase": { requires: ["base", "node"] },
-              "moodle-mod_quiz-dragdrop": {
-                requires: [
-                  "base",
-                  "node",
-                  "io",
-                  "dom",
-                  "dd",
-                  "dd-scroll",
-                  "moodle-core-dragdrop",
-                  "moodle-core-notification",
-                  "moodle-mod_quiz-quizbase",
-                  "moodle-mod_quiz-util-base",
-                  "moodle-mod_quiz-util-page",
-                  "moodle-mod_quiz-util-slot",
-                  "moodle-course-util",
-                ],
-              },
-              "moodle-mod_quiz-autosave": {
-                requires: [
-                  "base",
-                  "node",
-                  "event",
-                  "event-valuechange",
-                  "node-event-delegate",
-                  "io-form",
-                ],
-              },
-              "moodle-message_airnotifier-toolboxes": {
-                requires: ["base", "node", "io"],
-              },
-              "moodle-filter_glossary-autolinker": {
-                requires: [
-                  "base",
-                  "node",
-                  "io-base",
-                  "json-parse",
-                  "event-delegate",
-                  "overlay",
-                  "moodle-core-event",
-                  "moodle-core-notification-alert",
-                  "moodle-core-notification-exception",
-                  "moodle-core-notification-ajaxexception",
-                ],
-              },
-              "moodle-filter_mathjaxloader-loader": {
-                requires: ["moodle-core-event"],
-              },
-              "moodle-editor_atto-rangy": { requires: [] },
-              "moodle-editor_atto-editor": {
-                requires: [
-                  "node",
-                  "transition",
-                  "io",
-                  "overlay",
-                  "escape",
-                  "event",
-                  "event-simulate",
-                  "event-custom",
-                  "node-event-html5",
-                  "node-event-simulate",
-                  "yui-throttle",
-                  "moodle-core-notification-dialogue",
-                  "moodle-core-notification-confirm",
-                  "moodle-editor_atto-rangy",
-                  "handlebars",
-                  "timers",
-                  "querystring-stringify",
-                ],
-              },
-              "moodle-editor_atto-plugin": {
-                requires: [
-                  "node",
-                  "base",
-                  "escape",
-                  "event",
-                  "event-outside",
-                  "handlebars",
-                  "event-custom",
-                  "timers",
-                  "moodle-editor_atto-menu",
-                ],
-              },
-              "moodle-editor_atto-menu": {
-                requires: [
-                  "moodle-core-notification-dialogue",
-                  "node",
-                  "event",
-                  "event-custom",
-                ],
-              },
-              "moodle-report_eventlist-eventfilter": {
-                requires: [
-                  "base",
-                  "event",
-                  "node",
-                  "node-event-delegate",
-                  "datatable",
-                  "autocomplete",
-                  "autocomplete-filters",
-                ],
-              },
-              "moodle-report_loglive-fetchlogs": {
-                requires: [
-                  "base",
-                  "event",
-                  "node",
-                  "io",
-                  "node-event-delegate",
-                ],
-              },
-              "moodle-gradereport_history-userselector": {
-                requires: [
-                  "escape",
-                  "event-delegate",
-                  "event-key",
-                  "handlebars",
-                  "io-base",
-                  "json-parse",
-                  "moodle-core-notification-dialogue",
-                ],
-              },
-              "moodle-qbank_editquestion-chooser": {
-                requires: ["moodle-core-chooserdialogue"],
-              },
-              "moodle-tool_capability-search": { requires: ["base", "node"] },
-              "moodle-tool_lp-dragdrop-reorder": {
-                requires: ["moodle-core-dragdrop"],
-              },
-              "moodle-tool_monitor-dropdown": {
-                requires: ["base", "event", "node"],
-              },
-              "moodle-assignfeedback_editpdf-editor": {
-                requires: [
-                  "base",
-                  "event",
-                  "node",
-                  "io",
-                  "graphics",
-                  "json",
-                  "event-move",
-                  "event-resize",
-                  "transition",
-                  "querystring-stringify-simple",
-                  "moodle-core-notification-dialog",
-                  "moodle-core-notification-alert",
-                  "moodle-core-notification-warning",
-                  "moodle-core-notification-exception",
-                  "moodle-core-notification-ajaxexception",
-                ],
-              },
-              "moodle-atto_accessibilitychecker-button": {
-                requires: ["color-base", "moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_accessibilityhelper-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_align-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_bold-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_c4l-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_charmap-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_clear-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_collapse-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_emojipicker-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_emoticon-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_equation-button": {
-                requires: [
-                  "moodle-editor_atto-plugin",
-                  "moodle-core-event",
-                  "io",
-                  "event-valuechange",
-                  "tabview",
-                  "array-extras",
-                ],
-              },
-              "moodle-atto_fullscreen-button": {
-                requires: ["event-resize", "moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_h5p-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_html-button": {
-                requires: [
-                  "promise",
-                  "moodle-editor_atto-plugin",
-                  "moodle-atto_html-beautify",
-                  "moodle-atto_html-codemirror",
-                  "event-valuechange",
-                ],
-              },
-              "moodle-atto_html-codemirror": {
-                requires: ["moodle-atto_html-codemirror-skin"],
-              },
-              "moodle-atto_html-beautify": {},
-              "moodle-atto_image-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_indent-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_italic-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_link-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_managefiles-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_managefiles-usedfiles": {
-                requires: ["node", "escape"],
-              },
-              "moodle-atto_media-button": {
-                requires: [
-                  "moodle-editor_atto-plugin",
-                  "moodle-form-shortforms",
-                ],
-              },
-              "moodle-atto_noautolink-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_orderedlist-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_recordrtc-button": {
-                requires: [
-                  "moodle-editor_atto-plugin",
-                  "moodle-atto_recordrtc-recording",
-                ],
-              },
-              "moodle-atto_recordrtc-recording": {
-                requires: ["moodle-atto_recordrtc-button"],
-              },
-              "moodle-atto_rtl-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_strike-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_subscript-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_superscript-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_table-button": {
-                requires: [
-                  "moodle-editor_atto-plugin",
-                  "moodle-editor_atto-menu",
-                  "event",
-                  "event-valuechange",
-                ],
-              },
-              "moodle-atto_title-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_underline-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_undo-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-              "moodle-atto_unorderedlist-button": {
-                requires: ["moodle-editor_atto-plugin"],
-              },
-            },
-          },
-          gallery: {
-            name: "gallery",
-            base: "https:\/\/cdp.moeys.gov.kh\/lib\/yuilib\/gallery\/",
-            combine: true,
-            comboBase: "https:\/\/cdp.moeys.gov.kh\/theme\/yui_combo.php?",
-            ext: false,
-            root: "gallery\/1737001920\/",
-            patterns: { "gallery-": { group: "gallery" } },
-          },
-        },
-        modules: {
-          core_filepicker: {
-            name: "core_filepicker",
-            fullpath:
-              "https:\/\/cdp.moeys.gov.kh\/lib\/javascript.php\/1737001920\/repository\/filepicker.js",
-            requires: [
-              "base",
-              "node",
-              "node-event-simulate",
-              "json",
-              "async-queue",
-              "io-base",
-              "io-upload-iframe",
-              "io-form",
-              "yui2-treeview",
-              "panel",
-              "cookie",
-              "datatable",
-              "datatable-sort",
-              "resize-plugin",
-              "dd-plugin",
-              "escape",
-              "moodle-core_filepicker",
-              "moodle-core-notification-dialogue",
-            ],
-          },
-          core_comment: {
-            name: "core_comment",
-            fullpath:
-              "https:\/\/cdp.moeys.gov.kh\/lib\/javascript.php\/1737001920\/comment\/comment.js",
-            requires: [
-              "base",
-              "io-base",
-              "node",
-              "json",
-              "yui2-animation",
-              "overlay",
-              "escape",
-            ],
-          },
-          mathjax: {
-            name: "mathjax",
-            fullpath:
-              "https:\/\/cdn.jsdelivr.net\/npm\/mathjax@2.7.9\/MathJax.js?delayStartupUntil=configured",
-          },
-        },
-      };
       M.yui.loader = { modules: {} };
-
       //]]>
     </script>
 
@@ -2626,7 +1895,7 @@
           class="navbar-brand d-none d-md-flex align-items-center m-0 mr-4 p-0 aabtn"
         >
           <img
-            src="../img/logo_nss_o1.png"
+            src="logo_nss_o1.png"
             class="logo mr-1"
             alt="ថ្នាលអភិវឌ្ឍសមត្ថភាព"
           />
@@ -2649,6 +1918,7 @@
                   class="nav-link"
                   href="index.html"
                   aria-current="true"
+                  title="HOME"
                 >
                   HOME
                 </a>
@@ -2664,6 +1934,7 @@
                   class="nav-link active"
                   href="programe.html"
                   tabindex="-1"
+                  title="PROGRAME"
                 >
                   PROGRAME
                 </a>
@@ -2679,6 +1950,7 @@
                   class="nav-link"
                   href="All_Teacher.html"
                   tabindex="-1"
+                  title="TEACHER"
                 >
                   TEACHER
                 </a>
@@ -2693,37 +1965,44 @@
                   role="menuitem"
                   class="nav-link"
                   href="#"
-                  title="ជំនួយ"
+                  title="MATERIAL"
                   tabindex="-1"
                 >
                 MATERIAL
                 </a>
               </li>
               <li
-                role="none"
-                class="nav-item dropdown dropdownmoremenu d-none ml-auto"
-                data-region="morebutton"
+              data-key=""
+              class="nav-item"
+              role="none"
+              data-forceintomoremenu="false"
+            >
+              <a
+                role="menuitem"
+                class="nav-link"
+                href="#"
+                title="DONATION"
+                tabindex="-1"
               >
-                <a
-                  class="dropdown-toggle nav-link"
-                  href="#"
-                  id="moremenu-dropdown-67a235c6a4c90"
-                  role="menuitem"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  tabindex="-1"
-                >
-                  ផ្សេងទៀត
-                </a>
-                <ul
-                  class="dropdown-menu dropdown-menu-right"
-                  data-region="moredropdown"
-                  aria-labelledby="moremenu-dropdown-67a235c6a4c90"
-                  role="menu"
-                ></ul>
-              </li>
-            </ul>
+              DONATION
+              </a>
+            </li>
+            <li
+            data-key=""
+            class="nav-item"
+            role="none"
+            data-forceintomoremenu="false"
+          >
+            <a
+              role="menuitem"
+              class="nav-link"
+              href="#"
+              title="OTHER PROJECTS"
+              tabindex="-1"
+            >
+            OTHER PROJECTS
+            </a>
+          </li>
           </nav>
         </div>
 
@@ -2851,6 +2130,7 @@
               aria-current="true"
               data-aria-hidden-tab-index=""
               tabindex="-1"
+              title="HOME"
             >
               HOME
             </a>
@@ -2859,6 +2139,7 @@
               class="list-group-item list-group-item-action"
               data-aria-hidden-tab-index=""
               tabindex="-1"
+              title="PROGRAME"
             >
               PROGRAME
             </a>
@@ -2867,6 +2148,7 @@
               class="list-group-item list-group-item-action"
               data-aria-hidden-tab-index=""
               tabindex="-1"
+              title="TEACHER"
             >
               TEACHER
             </a>
@@ -2875,9 +2157,28 @@
               class="list-group-item list-group-item-action"
               data-aria-hidden-tab-index=""
               tabindex="-1"
+              title="MATERIAL"
             >
               MATERIAL
             </a>
+            <a
+            href="#"
+            class="list-group-item list-group-item-action"
+            data-aria-hidden-tab-index=""
+            tabindex="-1"
+            title="DONATION"
+          >
+             DONATION
+          </a>
+          <a
+          href="#"
+          class="list-group-item list-group-item-action"
+          data-aria-hidden-tab-index=""
+          tabindex="-1"
+          title="OTHER PROJECTS"
+        >
+          OTHER PROJECTS
+        </a>
           </div>
         </div>
       </div>
@@ -2981,7 +2282,7 @@
                           title="#"
                         ></i>
                       </div>
-                      <div id="bottomenrollbutton" class="d-block py-2">
+                      <div class="d-block py-2">
                         <a
                           class="btn btn-primary btn-block btn-lg shadow-sm rounded font-weight-bold text-uppercase"
                           href="#"
@@ -2990,8 +2291,6 @@
                       </div>
                       <div class="d-block d-md-none mt-3">
                         <div id="course-description-sm">
-                          <p></p>
-                          <p>
                             <span style="color: rgb(5, 89, 207)"
                               ><strong
                                 >About Guardians <br>
@@ -3010,8 +2309,6 @@
                             In order to cultivate the students of all the new seed schools into full human capital, teachers need to practice the three main things:
                             Self-improvement, reform of teaching methods
                             Work on lesson plans to assess students' abilities.
-                          </p>
-                          <p>
                               <strong
                                 ><span style="color: rgb(5, 89, 207)"
                                   >About Students<br /></span
@@ -3031,8 +2328,6 @@
                               >
                             </p>
                           </div>
-                          <p></p>
-                          <p></p>
                         </div>
                       </div>
                       <h4 class="mb-3 mt-5 d-block d-md-none"></h4>
@@ -3076,8 +2371,6 @@
                             >
                           </p>
                         </div>
-                        <p></p>
-                        <p></p>
                       </div>
                     </div>
                   </div>
@@ -3107,10 +2400,10 @@
             <div class="footer-section p-3 border-bottom">
               <div class="logininfo">
                 <div class="logininfo">
-                  អ្នកមិនបានចូលទេ ។ (<a
+                  <a
                     href="#"
                     >ចូលគណនី</a
-                  >)
+                  >
                 </div>
               </div>
               <div class="tool_usertours-resettourcontainer"></div>
@@ -3313,30 +2606,7 @@
                   });
 
                   $("body")
-                    .append(`<div class="modal fade" id="moeysextramodal" tabindex="-1" aria-labelledby="moeysextramodalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header bg-light">
-                <h5 class="modal-title" id="moeysextramodalLabel"><img
-                        src="/theme/boost_moeys/pix/moeys-30.png" height="30" alt="" class="mr-2"> ថ្នាលដទៃទៀតរបស់ក្រសួង</h5>
-                <button  class="close" data-dismiss="modal" aria-label="Close">
-                    <i class="fa fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body p-0">
-                <p class="m-0 px-3 py-2 border-bottom moeys-item">
-                    <small class="text-muted d-block mb-2">ស្វែងរក និងចុះឈ្មោះចូលរៀនក្នុងវគ្គសិក្សាអនឡាញដែលបង្កើតឡើងដោយនាយកដ្ឋាននៃក្រសួងអប់រំ និងដៃគូអភិវឌ្ឍន៍</small>
-                    <a href="https://elearning.moeys.gov.kh
-" target="_blank">មជ្ឈមណ្ឌលសិក្សាតាមរយៈអេឡិចត្រូនិក - elearning.moeys.gov.kh<i class="fa fa-long-arrow-right icon ml-2"></i></a>
-                </p><p class="m-0 px-3 py-2 border-bottom moeys-item">
-                    <small class="text-muted d-block mb-2">សាលាឌីជីថលនិម្មិតសម្រាប់សិស្សានុសិស្សគ្រូបង្រៀន និងអ្នកជំនាញធ្វើការចែករំលែកចំណេះដឹងទៅកាន់អ្នកសិក្សាដទៃទៀត។</small>
-                    <a href="https://sala.moeys.gov.kh" target="_blank">សាលាឌីជីថល - sala.moeys.gov.kh<i class="fa fa-long-arrow-right icon ml-2"></i></a>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>`);
+                    .append(``);
                   M.util.js_pending("theme_boost_moeys/scrollspy");
                   require(["theme_boost_moeys/scrollspy"], function (amd) {
                     amd.init();
@@ -3455,719 +2725,6 @@
               <script src="https://cdp.moeys.gov.kh/enrol/cpdlist/libraries/fancybox/jquery.fancybox.min.js"></script>
               <script>
                 //<![CDATA[
-                M.str = {
-                  moodle: {
-                    lastmodified:
-                      "\u1794\u17b6\u1793\u1780\u17c2\u1794\u17d2\u179a\u17c2\u1785\u17bb\u1784\u1780\u17d2\u179a\u17c4\u1799",
-                    name: "\u1788\u17d2\u1798\u17c4\u17c7",
-                    error: "\u1780\u17c6\u17a0\u17bb\u179f",
-                    info: "\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793",
-                    yes: "\u1794\u17b6\u1791\/\u1785\u17b6\u179f",
-                    no: "\u1791\u17c1",
-                    cancel: "\u1794\u17c4\u17c7\u1794\u1784\u17cb",
-                    confirm: "\u17a2\u17c7\u17a2\u17b6\u1784",
-                    areyousure:
-                      "\u178f\u17be\u17a2\u17d2\u1793\u1780\u1794\u17d2\u179a\u17b6\u1780\u178a\u1791\u17c1?",
-                    closebuttontitle: "\u1794\u17b7\u1791",
-                    unknownerror: "Unknown error",
-                    file: "\u17af\u1780\u179f\u17b6\u179a",
-                    url: "URL",
-                    collapseall:
-                      "\u179b\u17b6\u1780\u17cb\u1791\u17b6\u17c6\u1784\u17a2\u179f\u17cb",
-                    expandall:
-                      "\u1794\u1784\u17d2\u17a0\u17b6\u1789\u1791\u17b6\u17c6\u1784\u17a2\u179f\u17cb",
-                  },
-                  repository: {
-                    type: "\u1794\u17d2\u179a\u1797\u17c1\u1791",
-                    size: "\u1791\u17c6\u17a0\u17c6",
-                    invalidjson: "Invalid JSON string",
-                    nofilesattached:
-                      "\u1798\u17b7\u1793\u1798\u17b6\u1793\u17af\u1780\u179f\u17b6\u179a\u1797\u17d2\u1787\u17b6\u1794\u17cb",
-                    filepicker:
-                      "\u1787\u17d2\u179a\u17be\u179f\u17af\u1780\u179f\u17b6\u179a",
-                    logout: "Logout",
-                    nofilesavailable:
-                      "\u1798\u17b7\u1793\u1798\u17b6\u1793\u17af\u1780\u179f\u17b6\u179a\u1791\u17c1",
-                    norepositoriesavailable:
-                      "Sorry, none of your current repositories can return files in the required format.",
-                    fileexistsdialogheader: "File exists",
-                    fileexistsdialog_editor:
-                      "A file with that name has already been attached to the text you are editing.",
-                    fileexistsdialog_filemanager:
-                      "A file with that name has already been attached",
-                    renameto: 'Rename to "{$a}"',
-                    referencesexist: "There are {$a} links to this file",
-                    select: "\u1787\u17d2\u179a\u17be\u179f\u179a\u17be\u179f",
-                  },
-                  admin: {
-                    confirmdeletecomments:
-                      "\u17a2\u17d2\u1793\u1780\u179a\u17c0\u1794\u1793\u17b9\u1784\u179b\u17bb\u1794\u1798\u178f\u17b7\u17d4 \u178f\u17be\u17a2\u17d2\u1793\u1780\u1794\u17d2\u179a\u17b6\u1780\u178a\u1791\u17c1?",
-                    confirmation: "\u17a2\u17c7\u17a2\u17b6\u1784",
-                  },
-                  enrol_cpdlist: {
-                    pluginname: "MOEYS CPD",
-                    labeleng:
-                      "\u1788\u17d2\u1798\u17c4\u17c7\u1787\u17b6\u1797\u17b6\u179f\u17b6\u17a2\u1784\u17cb\u1782\u17d2\u179b\u17c1\u179f",
-                    labelkm:
-                      "\u1788\u17d2\u1798\u17c4\u17c7\u1787\u17b6\u1797\u17b6\u179f\u17b6\u1781\u17d2\u1798\u17c2\u179a",
-                    name: "\u1788\u17d2\u1798\u17c4\u17c7\u1781\u17d2\u179b\u17b8",
-                    logo: "\u17a1\u17bc\u17a0\u17d2\u1782\u17bc",
-                    icon: "\u179a\u17bc\u1794\u178f\u17c6\u178e\u17b6\u1784",
-                    description:
-                      "\u1780\u17b6\u179a\u1796\u17b7\u1796\u178e\u17cc\u1793\u17b6",
-                    url: "\u178f\u17c6\u178e\u1797\u17d2\u1787\u17b6\u1794\u17cb",
-                    nameunique:
-                      "\u1788\u17d2\u1798\u17c4\u17c7\u1781\u17d2\u179b\u17b8\u1798\u17b7\u1793\u17a2\u17b6\u1785\u179f\u17d2\u1791\u17bd\u1793\u1794\u17b6\u1793\u1791\u17c1",
-                    accredited:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1795\u17d2\u178f\u179b\u17cb\u1780\u17d2\u179a\u17c1\u178c\u17b8\u178f\u178a\u17c4\u1799\u1780\u17d2\u179a\u179f\u17bd\u1784",
-                    location:
-                      "\u1791\u17b8\u178f\u17b6\u17c6\u1784\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17bd\u1798",
-                    category:
-                      "\u1787\u17c6\u1793\u17b6\u1789\u17af\u1780\u1791\u17c1\u179f",
-                    type: "\u1794\u17d2\u179a\u1797\u17c1\u1791\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    language: "\u1797\u17b6\u179f\u17b6",
-                    audiencetype:
-                      "\u1794\u17d2\u179a\u1797\u17c1\u1791\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17bd\u1798",
-                    audiencelevel:
-                      "\u1780\u1798\u17d2\u179a\u17b7\u178f\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17bd\u1798",
-                    modality:
-                      "\u1798\u1792\u17d2\u1799\u17c4\u1794\u17b6\u1799\u1794\u1784\u17d2\u179a\u17c0\u1793",
-                    accessibility:
-                      "\u1797\u17b6\u1796\u17a2\u17b6\u1785\u1785\u17bc\u179b\u178a\u17c6\u178e\u17be\u179a\u1780\u17b6\u179a",
-                    provider:
-                      "\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    "cpd-plural": "\u17a2\u179c\u1794",
-                    "provider-plural":
-                      "\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    "location-plural":
-                      "\u1791\u17b8\u178f\u17b6\u17c6\u1784\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17bd\u1798",
-                    "category-plural":
-                      "\u1787\u17c6\u1793\u17b6\u1789\u17af\u1780\u1791\u17c1\u179f",
-                    "type-plural":
-                      "\u1794\u17d2\u179a\u1797\u17c1\u1791\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    "language-plural": "\u1797\u17b6\u179f\u17b6",
-                    "audiencetype-plural":
-                      "\u1794\u17d2\u179a\u1797\u17c1\u1791\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17bd\u1798",
-                    "audiencelevel-plural":
-                      "\u1780\u1798\u17d2\u179a\u17b7\u178f\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17bd\u1798",
-                    "modality-plural":
-                      "\u1798\u1792\u17d2\u1799\u17c4\u1794\u17b6\u1799\u1794\u1784\u17d2\u179a\u17c0\u1793",
-                    "accessibility-plural":
-                      "\u1797\u17b6\u1796\u17a2\u17b6\u1785\u1785\u17bc\u179b\u178a\u17c6\u178e\u17be\u179a\u1780\u17b6\u179a",
-                    reportedissue:
-                      "\u1794\u1789\u17d2\u17a0\u17b6\u178a\u17c2\u179b\u1794\u17b6\u1793\u179a\u17b6\u1799\u1780\u17b6\u179a\u178e\u17cd",
-                    "reportedissue-plural":
-                      "\u1794\u1789\u17d2\u17a0\u17b6\u178a\u17c2\u179b\u1794\u17b6\u1793\u179a\u17b6\u1799\u1780\u17b6\u179a\u178e\u17cd",
-                    active: "\u179f\u1780\u1798\u17d2\u1798",
-                    inactive: "\u17a2\u179f\u1780\u1798\u17d2\u1798",
-                    new: "\u1790\u17d2\u1798\u17b8",
-                    review:
-                      "\u1780\u17c6\u1796\u17bb\u1784\u1796\u17b7\u1793\u17b7\u178f\u17d2\u1799",
-                    published:
-                      "\u1794\u17b6\u1793\u1795\u17d2\u179f\u1796\u17d2\u179c\u1795\u17d2\u179f\u17b6\u1799",
-                    archived:
-                      "\u1794\u17b6\u1793\u179a\u1780\u17d2\u179f\u17b6\u1791\u17bb\u1780\u1780\u17d2\u1793\u17bb\u1784\u1794\u17d0\u178e\u17d2\u178e\u179f\u17b6\u179a",
-                    need_review:
-                      "\u178f\u17d2\u179a\u17bc\u179c\u1780\u17b6\u179a\u1780\u17b6\u179a\u1780\u17c2\u1794\u17d2\u179a\u17c2",
-                    rejected:
-                      "\u1794\u17b6\u1793\u1794\u178a\u17b7\u179f\u17c1\u1792",
-                    settings:
-                      "\u1780\u17b6\u179a\u1780\u17c6\u178e\u178f\u17cb",
-                    manage:
-                      "\u1782\u17d2\u179a\u1794\u17cb\u1782\u17d2\u179a\u1784",
-                    templatecategory:
-                      "\u1794\u17d2\u179a\u1797\u17c1\u1791\u1782\u17c6\u179a\u17bc\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    category_desc:
-                      "\u1794\u17d2\u179a\u1797\u17c1\u1791\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u179f\u1798\u17d2\u179a\u17b6\u1794\u17cb\u1794\u17d2\u179a\u17be\u1787\u17b6\u1782\u1798\u17d2\u179a\u17bc\u179f\u1798\u17d2\u179a\u17b6\u1794\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1790\u17d2\u1798\u17b8",
-                    notifyusers:
-                      "\u1787\u17bc\u1793\u178a\u17c6\u178e\u17b9\u1784\u17a2\u17d2\u1793\u1780\u1794\u17d2\u179a\u17be\u1794\u17d2\u179a\u17b6\u179f\u17cb",
-                    notifyusers_desc:
-                      "\u17a2\u17d2\u1793\u1780\u178a\u17c2\u179b\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1787\u17bc\u1793\u178a\u17c6\u178e\u17b9\u1784\u1793\u17c5\u1796\u17c1\u179b\u178a\u17c2\u179b\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1790\u17d2\u1798\u17b8\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u179f\u17d2\u1793\u17be\u17a1\u17be\u1784",
-                    submitcourse:
-                      "\u179f\u17d2\u1793\u17be\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    mysubmittedcourses:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1781\u17d2\u1789\u17bb\u17c6\u1794\u17b6\u1793\u179f\u17d2\u1793\u17be",
-                    managecourses:
-                      "\u1782\u17d2\u179a\u1794\u17cb\u1782\u17d2\u179a\u1784\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    manageproviders:
-                      "\u1782\u17d2\u179a\u1794\u17cb\u1782\u17d2\u179a\u1784\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    managemetadata:
-                      "\u1782\u17d2\u179a\u1794\u17cb\u1782\u17d2\u179a\u1784\u1791\u17b7\u1793\u17d2\u1793\u1793\u17d0\u1799\u1798\u17c1\u178f\u17b6",
-                    explorecourses:
-                      "\u179f\u17d2\u179c\u17c2\u1784\u179a\u1780\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    findacourse:
-                      "\u179a\u1780\u1798\u17be\u179b\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u178f\u17d2\u179a\u17bc\u179c\u1793\u17b9\u1784\u178f\u1798\u17d2\u179a\u17bc\u179c\u1780\u17b6\u179a\u179a\u1794\u179f\u17cb\u17a2\u17d2\u1793\u1780",
-                    clicktoseeoptions:
-                      "\u1785\u17bb\u1785\u178a\u17be\u1798\u17d2\u1794\u17b8\u1798\u17be\u179b\u1787\u1798\u17d2\u179a\u17be\u179f",
-                    coursesby:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c4\u1799 {$a}",
-                    coursesin:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1780\u17d2\u1793\u17bb\u1784\u1798\u17bb\u1781\u179c\u17b7\u1787\u17d2\u1787\u17b6 {$a}",
-                    featured:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1796\u17b7\u179f\u17c1\u179f",
-                    featured_desc:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1787\u17d2\u179a\u17be\u179f\u179a\u17be\u179f\u178a\u17c4\u1799\u1780\u17d2\u179a\u179f\u17bd\u1784\u178a\u17c2\u179b\u1798\u17b6\u1793\u179f\u17b6\u179a\u17c8\u179f\u17c6\u1781\u17b6\u1793\u17cb\u17d4",
-                    popular:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1796\u17c1\u1789\u1793\u17b7\u1799\u1798",
-                    popular_desc:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1796\u17c1\u1789\u1793\u17b7\u1799\u1798\u1781\u17d2\u179b\u17b6\u17c6\u1784\u1787\u17b6\u1784\u1782\u17c1\u1785\u17c6\u1793\u17bd\u1793 \u17e1\u17e0 \u178a\u17c2\u179b\u1791\u1791\u17bd\u179b\u1794\u17b6\u1793\u1780\u17b6\u179a\u1785\u17bc\u179b\u1785\u17b7\u178f\u17d2\u178f\u1785\u17d2\u179a\u17be\u1793\u1796\u17b8\u17a2\u17d2\u1793\u1780\u1794\u17d2\u179a\u17be\u1794\u17d2\u179a\u17b6\u179f\u17cb",
-                    accredited_desc:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1791\u1791\u17bd\u179b\u179f\u17d2\u1782\u17b6\u179b\u17cb\u1782\u17bb\u178e\u1797\u17b6\u1796\u178a\u17c4\u1799\u1780\u17d2\u179a\u179f\u17bd\u1784 \u178a\u17c2\u179b\u17a2\u17d2\u1793\u1780\u179f\u17b7\u1780\u17d2\u179f\u17b6\u17a2\u17b6\u1785\u1791\u1791\u17bd\u179b\u1794\u17b6\u1793 \u17a2\u179c\u1794\u1780\u17d2\u179a\u17c1\u178c\u17b8\u178f\u1793\u17c5\u1796\u17c1\u179b\u1794\u1789\u17d2\u1785\u1794\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u17d4",
-                    newcourses:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1790\u17d2\u1798\u17b8\u17d7",
-                    newcourses_desc:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1794\u17b6\u1793\u1794\u1784\u17d2\u1780\u17be\u178f\u1790\u17d2\u1798\u17b8\u1793\u17c5\u1780\u17d2\u1793\u17bb\u1784\u179a\u1799\u17c8\u1796\u17c1\u179b\u1798\u17bd\u1799\u1781\u17c2\u1785\u17bb\u1784\u1780\u17d2\u179a\u17c4\u1799",
-                    selfdirected:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1794\u17c2\u1794\u179f\u17d2\u179c\u17d0\u1799\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    selfdirected_desc:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u17a2\u17d2\u1793\u1780\u17a2\u17b6\u1785\u1785\u17b6\u1794\u17cb\u1795\u17d2\u178f\u17be\u1798 \u1793\u17b7\u1784\u1794\u1789\u17d2\u1785\u1794\u17cb\u178a\u17c4\u1799\u1781\u17d2\u179b\u17bd\u1793\u17af\u1784",
-                    nocoursesfound:
-                      "\u1798\u17b7\u1793\u1798\u17b6\u1793\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u17a2\u17b6\u1785\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7\u1794\u17b6\u1793\u1791\u17c1",
-                    showingaofbcourses:
-                      "\u1794\u1784\u17d2\u17a0\u17b6\u1789 {$a->first}-{$a->last} \u1780\u17d2\u1793\u17bb\u1784\u1785\u17c6\u178e\u17c4\u1798\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6 {$a->total}",
-                    showingaofbproviders:
-                      "\u1794\u1784\u17d2\u17a0\u17b6\u1789 {$a->first}-{$a->last} \u1780\u17d2\u1793\u17bb\u1784\u1785\u17c6\u178e\u17c4\u1798\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb {$a->total}",
-                    sortbyname:
-                      "\u178f\u1798\u17d2\u179a\u17c0\u1794\u178f\u17b6\u1798\u1788\u17d2\u1798\u17c4\u17c7",
-                    sortbytimeupdated:
-                      "\u178f\u1798\u17d2\u179a\u17c0\u1794\u178f\u17b6\u1798\u1796\u17c1\u179b\u1780\u17c2\u1794\u17d2\u179a\u17c2\u1785\u17bb\u1784\u1780\u17d2\u179a\u17c4\u1799",
-                    sortbycoursestartdate:
-                      "\u178f\u1798\u17d2\u179a\u17c0\u1794\u178f\u17b6\u1798\u1790\u17d2\u1784\u17c3\u1785\u17b6\u1794\u17cb\u1795\u17d2\u178f\u17be\u1798\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    sortbypopularity:
-                      "\u178f\u1798\u17d2\u179a\u17c0\u1794\u178f\u17b6\u1798\u1797\u17b6\u1796\u1796\u17c1\u1789\u1793\u17b7\u1799\u1798",
-                    sortbyenrollmentcount:
-                      "\u178f\u1798\u17d2\u179a\u17c0\u1794\u178f\u17b6\u1798\u1785\u17c6\u1793\u17bd\u1793\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17bd\u1798",
-                    sortorderdesc:
-                      "\u178f\u17b6\u1798\u179b\u17c6\u178a\u17b6\u1794\u17cb\u1785\u17bb\u17c7",
-                    sortorderasc:
-                      "\u178f\u17b6\u1798\u179b\u17c6\u178a\u17b6\u1794\u17cb\u17a1\u17be\u1784",
-                    financialaidavailable:
-                      "\u1798\u17b6\u1793\u1780\u17b6\u179a\u1782\u17b6\u17c6\u1791\u17d2\u179a\u17a0\u17b7\u179a\u1789\u17d2\u1789\u179c\u178f\u17d2\u1790\u17bb",
-                    paid: "\u1794\u1784\u17cb\u1790\u17d2\u179b\u17c3",
-                    free: "\u17a5\u178f\u1782\u17b7\u178f\u1790\u17d2\u179b\u17c3",
-                    cpdcredits:
-                      "\u1780\u17d2\u179a\u17c1\u178c\u17b8\u178f\u17a2\u179c\u1794",
-                    certificate:
-                      "\u179c\u17b7\u1789\u17d2\u1789\u17b6\u1794\u1793\u1794\u178f\u17d2\u179a",
-                    badge:
-                      "\u179f\u17d2\u179b\u17b6\u1780\u179f\u1798\u17d2\u1782\u17b6\u179b\u17cb",
-                    coursefilter:
-                      "\u1785\u1798\u17d2\u179a\u17b6\u1789\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    resetall:
-                      "\u1780\u17c6\u178e\u178f\u17cb\u17a1\u17be\u1784\u179c\u17b7\u1789",
-                    entersearchkeyword:
-                      "\u1794\u1789\u17d2\u1785\u17bc\u179b\u1796\u17b6\u1780\u17d2\u1799\u1782\u1793\u17d2\u179b\u17b9\u17c7\u179f\u1798\u17d2\u179a\u17b6\u1794\u17cb\u179f\u17d2\u179c\u17c2\u1784\u179a\u1780",
-                    advancedfilters:
-                      "\u1785\u1798\u17d2\u179a\u17b6\u1789\u17cb\u1780\u1798\u17d2\u179a\u17b7\u178f\u1781\u17d2\u1796\u179f\u17cb",
-                    startdaterange:
-                      "\u1785\u17b6\u1794\u17cb\u1795\u17d2\u178f\u17be\u1798\u1780\u17d2\u1793\u17bb\u1784\u1780\u17c6\u17a1\u17bb\u1784\u1796\u17c1\u179b",
-                    search: "\u179f\u17d2\u179c\u17c2\u1784\u179a\u1780",
-                    offeredby:
-                      "\u1795\u17d2\u178f\u179b\u17cb\u1787\u17bc\u1793\u178a\u17c4\u1799",
-                    youmustbeloggedintolikethecourse:
-                      "\u17a2\u17d2\u1793\u1780\u178f\u17d2\u179a\u17bc\u179c\u178f\u17c2\u1785\u17bc\u179b\u1780\u17d2\u1793\u17bb\u1784\u1782\u178e\u1793\u17b8\u178a\u17be\u1798\u17d2\u1794\u17b8\u1785\u17bc\u179b\u1785\u17b7\u178f\u17d2\u178f\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    youmustbeloggedintoreportthiscourse:
-                      "\u17a2\u17d2\u1793\u1780\u178f\u17d2\u179a\u17bc\u179c\u178f\u17c2\u1785\u17bc\u179b\u1780\u17d2\u1793\u17bb\u1784\u1782\u178e\u1793\u17b8\u178a\u17be\u1798\u17d2\u1794\u17b8\u179a\u17b6\u1799\u1780\u17b6\u179a\u178e\u17cd\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    youlikedthis:
-                      "\u17a2\u17d2\u1793\u1780\u1794\u17b6\u1793\u1785\u17bc\u179b\u1785\u17b7\u178f\u17d2\u178f\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1793\u17c1\u17c7",
-                    clicktolikethis: "Click to like",
-                    youlikedthiscourse:
-                      "\u17a2\u17d2\u1793\u1780\u1794\u17b6\u1793\u1785\u17bc\u179b\u1785\u17b7\u178f\u17d2\u178f\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1793\u17c1\u17c7",
-                    reportanissue:
-                      "\u179a\u17b6\u1799\u1780\u17b6\u179a\u178e\u17cd\u1794\u1789\u17d2\u17a0\u17b6",
-                    reason: "\u17a0\u17c1\u178f\u17bb\u1795\u179b",
-                    close: "\u1794\u17b7\u1791",
-                    submit: "\u1794\u1789\u17d2\u1787\u17bc\u1793",
-                    yourreporthasbeensubmitted:
-                      "\u179a\u1794\u17b6\u1799\u1780\u17b6\u179a\u178e\u17cd\u179a\u1794\u179f\u17cb\u17a2\u17d2\u1793\u1780\u1794\u17b6\u1793\u1794\u1789\u17d2\u1787\u17bc\u1793\u178a\u17c4\u1799\u1787\u17c4\u1782\u1787\u17d0\u1799",
-                    price: "\u178f\u1798\u17d2\u179b\u17c3",
-                    rewards:
-                      "\u17a2\u178f\u17d2\u1790\u1794\u17d2\u179a\u1799\u17c4\u1787\u1793\u17cd",
-                    createanaccount:
-                      "\u1794\u1784\u17d2\u1780\u17be\u178f\u1782\u178e\u1793\u17b8",
-                    searchcourses:
-                      "\u179f\u17d2\u179c\u17c2\u1784\u179a\u1780\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6...",
-                    seeall:
-                      "\u1798\u17be\u179b\u1791\u17b6\u17c6\u1784\u17a2\u179f\u17cb",
-                    wanttobeaprovider:
-                      "\u1785\u1784\u17cb\u1780\u17d2\u179b\u17b6\u1799\u1787\u17b6\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6?",
-                    aboutthisplatform:
-                      "\u17a2\u17c6\u1796\u17b8\u1790\u17d2\u1793\u17b6\u179b\u1793\u17c1\u17c7",
-                    enteryourcertificatenumberhere:
-                      "\u1794\u1789\u17d2\u1785\u17bc\u179b\u179b\u17c1\u1781\u179c\u17b7\u1789\u17d2\u1789\u17b6\u1794\u1793\u1794\u178f\u17d2\u179a\u179a\u1794\u179f\u17cb\u17a2\u17d2\u1793\u1780\u1793\u17c5\u1791\u17b8\u1793\u17c1\u17c7",
-                    separatemultiplecertificatebycomma:
-                      "\u1794\u17c6\u1794\u17c2\u1780\u179b\u17c1\u1781\u179c\u17b7\u1789\u17d2\u1789\u17b6\u1794\u1793\u1794\u178f\u17d2\u179a\u1785\u17d2\u179a\u17be\u1793\u178a\u17c4\u1799\u179f\u1789\u17d2\u1789\u17b6\u1780\u17d2\u1794\u17c0\u179f",
-                    connectwithmoeys:
-                      "\u178f\u17b6\u1798\u178a\u17b6\u1793\u1780\u17d2\u179a\u179f\u17bd\u1784\u17a2\u1794\u17cb\u179a\u17c6",
-                    facebook:
-                      "\u17a0\u17d2\u179c\u17c1\u179f\u1794\u17ca\u17bb\u1780",
-                    telegram:
-                      "\u178f\u17c1\u17a1\u17c1\u1780\u17d2\u179a\u17b6\u1798",
-                    copylink:
-                      "\u1785\u1798\u17d2\u179b\u1784\u178f\u17c6\u178e",
-                    share: "\u1785\u17c2\u1780\u179a\u17c6\u179b\u17c2\u1780",
-                    startdate:
-                      "\u1785\u17b6\u1794\u17cb\u1795\u17d2\u178f\u17be\u1798",
-                    enddate: "\u1794\u1789\u17d2\u1785\u1794\u17cb",
-                    seats:
-                      "\u1785\u17c6\u1793\u17bd\u1793\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17c0\u1793",
-                    duration: "\u179a\u1799\u17c8\u1796\u17c1\u179b",
-                    hours: "\u1798\u17c9\u17c4\u1784",
-                    days: "\u1790\u17d2\u1784\u17c3",
-                    weeks: "\u179f\u1794\u17d2\u178f\u17b6\u17a0\u17cd",
-                    months: "\u1781\u17c2",
-                    howtoenroll:
-                      "\u179a\u1794\u17c0\u1794\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7\u1785\u17bc\u179b\u179a\u17c0\u1793",
-                    clicktoseetheinfo:
-                      "\u1785\u17bb\u1785\u178a\u17be\u1798\u17d2\u1794\u17b8\u1798\u17be\u179b\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793",
-                    financialaidinfo:
-                      "\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793\u17a2\u17c6\u1796\u17b8\u1780\u17b6\u179a\u1782\u17b6\u17c6\u1791\u17d2\u179a\u1790\u179c\u17b7\u1780\u17b6",
-                    gotocourse:
-                      "\u1791\u17c5\u1780\u17b6\u1793\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    enrolstart:
-                      "\u1780\u17b6\u179a\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7\u1785\u17bc\u179b\u179a\u17c0\u1793\u1785\u17b6\u1794\u17cb\u1795\u17d2\u178f\u17be\u1798<br>{$a}",
-                    featuredlabel: "\u1796\u17b7\u179f\u17c1\u179f",
-                    whatyouwilllearn:
-                      "\u17a2\u17d2\u179c\u17b8\u178a\u17c2\u179b\u17a2\u17d2\u1793\u1780\u1793\u17b9\u1784\u179a\u17c0\u1793",
-                    prerequisites:
-                      "\u179b\u1780\u17d2\u1781\u1781\u17d0\u178e\u17d2\u178c\u178a\u17c2\u179b\u178f\u17d2\u179a\u17bc\u179c\u1798\u17b6\u1793",
-                    instructors:
-                      "\u17a2\u17d2\u1793\u1780\u1794\u1784\u17d2\u179a\u17c0\u1793",
-                    coursedetails:
-                      "\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793\u179b\u17c6\u17a2\u17b7\u178f\u17a2\u17c6\u1796\u17b8\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    enrollmentends:
-                      "\u1780\u17b6\u179a\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7\u1785\u17bc\u179b\u179a\u17c0\u1793\u1794\u1789\u17d2\u1785\u1794\u17cb<br>{$a}",
-                    any: "\u1798\u17b7\u1793\u1780\u17c6\u178e\u178f\u17cb",
-                    unlimited:
-                      "\u1798\u17b7\u1793\u1780\u17c6\u178e\u178f\u17cb",
-                    never: "\u1798\u17b7\u1793\u1780\u17c6\u178e\u178f\u17cb",
-                    clicktoseethefinancialaidinfo:
-                      "\u1785\u17bb\u1785\u178a\u17be\u1798\u17d2\u1794\u17b8\u1798\u17be\u179b\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793\u17a2\u17c6\u1796\u17b8\u1780\u17b6\u179a\u1782\u17b6\u17c6\u1791\u17d2\u179a\u1790\u179c\u17b7\u1780\u17b6",
-                    USD: "\u178a\u17bb\u179b\u17d2\u179b\u17b6\u179a",
-                    KHR: "\u179a\u17c0\u179b",
-                    allcourses:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1791\u17b6\u17c6\u1784\u17a2\u179f\u17cb",
-                    courseinfo:
-                      "\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793\u179b\u17c6\u17a2\u17b7\u178f\u17a2\u17c6\u1796\u17b8\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    anytime:
-                      "\u1796\u17c1\u179b\u178e\u17b6\u1780\u17cf\u1794\u17b6\u1793",
-                    attachments:
-                      "\u17af\u1780\u179f\u17b6\u179a\u1797\u17d2\u1787\u17b6\u1794\u17cb",
-                    accreditedprovider:
-                      "\u1794\u17b6\u1793\u1791\u1791\u17bd\u179b\u179f\u17d2\u1782\u17b6\u179b\u17cb",
-                    title: "\u1785\u17c6\u178e\u1784\u1787\u17be\u1784",
-                    durationunit:
-                      "\u17af\u1780\u178f\u17b6\u179a\u1799\u17c8\u1796\u17c1\u179b",
-                    learningoutcomes:
-                      "\u179b\u1791\u17d2\u1792\u1795\u179b\u1793\u17c3\u1780\u17b6\u179a\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    courseimage:
-                      "\u179a\u17bc\u1794\u1797\u17b6\u1796\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    coursevideo:
-                      "\u179c\u17b8\u178a\u17c1\u17a2\u17bc\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    externalcourse:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1781\u17b6\u1784\u1780\u17d2\u179a\u17c5",
-                    enrollmentinfo:
-                      "\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793\u17a2\u17c6\u1796\u17b8\u1780\u17b6\u179a\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7",
-                    enrollmentstartdate:
-                      "\u1790\u17d2\u1784\u17c3\u1785\u17b6\u1794\u17cb\u1795\u17d2\u178f\u17be\u1798\u1780\u17b6\u179a\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7",
-                    enrollmentenddate:
-                      "\u1790\u17d2\u1784\u17c3\u1794\u1789\u17d2\u1785\u1794\u17cb\u1780\u17b6\u179a\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7",
-                    enrollmentinstructions:
-                      "\u179f\u17c1\u1785\u1780\u17d2\u178f\u17b8\u178e\u17c2\u1793\u17b6\u17c6\u17a2\u17c6\u1796\u17b8\u1780\u17b6\u179a\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7",
-                    currency:
-                      "\u179a\u17bc\u1794\u17b7\u1799\u1794\u17d0\u178e\u17d2\u178e",
-                    financialaiddetails:
-                      "\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793\u179b\u17c6\u17a2\u17b7\u178f\u17a2\u17c6\u1796\u17b8\u1780\u17b6\u179a\u1782\u17b6\u17c6\u1791\u17d2\u179a\u1794\u17d2\u179a\u17b6\u1780\u17cb",
-                    targetparticipants:
-                      "\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17bd\u1798\u1782\u17c4\u179b\u178a\u17c5",
-                    additionalcourseinfo:
-                      "\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793\u1794\u1793\u17d2\u1790\u17c2\u1798\u17a2\u17c6\u1796\u17b8\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    publicattachments:
-                      "\u17af\u1780\u179f\u17b6\u179a\u179f\u17b6\u1792\u17b6\u179a\u178e\u17c8",
-                    privateattachments:
-                      "\u17af\u1780\u179f\u17b6\u179a\u17af\u1780\u1787\u1793",
-                    adminonly:
-                      "\u179f\u1798\u17d2\u179a\u17b6\u1794\u17cb\u178f\u17c2\u17a2\u17c2\u178f\u1798\u17b8\u1793",
-                    lockedit:
-                      "\u1785\u17b6\u1780\u17cb\u179f\u17c4\u1780\u17b6\u179a\u1780\u17c2\u1794\u17d2\u179a\u17c2",
-                    update: "\u1780\u17c2\u1794\u17d2\u179a\u17c2",
-                    selectmodality:
-                      "\u1787\u17d2\u179a\u17be\u179f\u179a\u17be\u179f\u1798\u1792\u17d2\u1799\u17c4\u1794\u17b6\u1799\u1794\u1784\u17d2\u179a\u17c0\u1793",
-                    address:
-                      "\u17a2\u17b6\u179f\u1799\u178a\u17d2\u178b\u17b6\u1793",
-                    linkedcourse:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u178f\u17d2\u179a\u17bc\u179c\u1797\u17d2\u1787\u17b6\u1794\u17cb",
-                    createnew:
-                      "\u1794\u1784\u17d2\u1780\u17be\u178f\u1790\u17d2\u1798\u17b8",
-                    createnewfromtemplate:
-                      "\u1794\u1784\u17d2\u1780\u17be\u178f\u1790\u17d2\u1798\u17b8\u1796\u17b8\u1782\u17c6\u179a\u17bc",
-                    useexisting:
-                      "\u1794\u17d2\u179a\u17be\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1798\u17b6\u1793\u179f\u17d2\u179a\u17b6\u1794\u17cb",
-                    coursetemplate:
-                      "\u1782\u17c6\u179a\u17bc\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    existingcourses:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1798\u17b6\u1793\u179f\u17d2\u179a\u17b6\u1794\u17cb",
-                    status: "\u179f\u17d2\u1790\u17b6\u1793\u1797\u17b6\u1796",
-                    comments:
-                      "\u1798\u178f\u17b7\u1799\u17c4\u1794\u179b\u17cb",
-                    selectanexistingcourse:
-                      "\u1787\u17d2\u179a\u17be\u179f\u179a\u17be\u179f\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1798\u17b6\u1793\u179f\u17d2\u179a\u17b6\u1794\u17cb",
-                    createdby:
-                      "\u1794\u1784\u17d2\u1780\u17be\u178f\u178a\u17c4\u1799",
-                    lastupdatedby:
-                      "\u1780\u17c2\u1794\u17d2\u179a\u17c2\u1785\u17bb\u1784\u1780\u17d2\u179a\u17c4\u1799\u178a\u17c4\u1799",
-                    on: "\u1793\u17c5\u1790\u17d2\u1784\u17c3",
-                    courseenddatemustbeaftercoursestartdate:
-                      "\u1790\u17d2\u1784\u17c3\u1794\u1789\u17d2\u1785\u1794\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178f\u17d2\u179a\u17bc\u179c\u178f\u17c2\u1798\u17bb\u1793\u1790\u17d2\u1784\u17c3\u1785\u17b6\u1794\u17cb\u1795\u17d2\u178f\u17be\u1798\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    enrollmentstartdatemustbebeforecoursestartdate:
-                      "\u1790\u17d2\u1784\u17c3\u1785\u17b6\u1794\u17cb\u1795\u17d2\u178f\u17be\u1798\u1780\u17b6\u179a\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7\u178f\u17d2\u179a\u17bc\u179c\u178f\u17c2\u1798\u17bb\u1793\u1790\u17d2\u1784\u17c3\u1785\u17b6\u1794\u17cb\u1795\u17d2\u178f\u17be\u1798\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    enrollmentstartdatemustbebeforeenrollmentenddate:
-                      "\u1790\u17d2\u1784\u17c3\u1785\u17b6\u1794\u17cb\u1795\u17d2\u178f\u17be\u1798\u1780\u17b6\u179a\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7\u178f\u17d2\u179a\u17bc\u179c\u178f\u17c2\u1798\u17bb\u1793\u1790\u17d2\u1784\u17c3\u1794\u1789\u17d2\u1785\u1794\u17cb\u1780\u17b6\u179a\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7",
-                    enrollmentenddatemustbebeforecourseenddate:
-                      "\u1790\u17d2\u1784\u17c3\u1794\u1789\u17d2\u1785\u1794\u17cb\u1780\u17b6\u179a\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7\u178f\u17d2\u179a\u17bc\u179c\u178f\u17c2\u1798\u17bb\u1793\u1790\u17d2\u1784\u17c3\u1794\u1789\u17d2\u1785\u1794\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    financialaidtextrequired:
-                      "\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793\u179b\u1798\u17d2\u17a2\u17b7\u178f\u1796\u17b8\u1780\u17b6\u179a\u1782\u17b6\u17c6\u1791\u17d2\u179a\u1790\u179c\u17b7\u1780\u17b6\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1791\u17b6\u1798\u1791\u17b6\u179a",
-                    certificatetemplaterequired:
-                      "\u1782\u17c6\u179a\u17bc\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1791\u17b6\u1798\u1791\u17b6\u179a",
-                    certificatetemplateidrequired:
-                      "\u179b\u17c1\u1781\u179f\u1798\u17d2\u1782\u17b6\u179b\u17cb\u1782\u17c6\u179a\u17bc\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1791\u17b6\u1798\u1791\u17b6\u179a",
-                    coursevideomustbevalidurl:
-                      "\u178f\u17c6\u178e\u1797\u17d2\u1787\u17b6\u1794\u17cb\u179c\u17b8\u178a\u17c1\u17a2\u17bc\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178f\u17d2\u179a\u17bc\u179c\u178f\u17c2\u1798\u17b6\u1793\u179f\u17bb\u1796\u179b\u1797\u17b6\u1796",
-                    existingcourserequired:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1798\u17b6\u1793\u179f\u17d2\u179a\u17b6\u1794\u17cb\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1791\u17b6\u1798\u1791\u17b6\u179a",
-                    youdonthavepermissiontorequestthecourse:
-                      "\u17a2\u17d2\u1793\u1780\u1798\u17b7\u1793\u1798\u17b6\u1793\u179f\u17b7\u1791\u17d2\u1792\u17b7\u178a\u17be\u1798\u17d2\u1794\u17b8\u179f\u17d2\u1793\u17be\u179f\u17bb\u17c6\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1793\u17c1\u17c7\u1791\u17c1",
-                    editing: "\u1780\u17c2\u1794\u17d2\u179a\u17c2",
-                    newcourse:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1790\u17d2\u1798\u17b8",
-                    adding:
-                      "\u1780\u17c6\u1796\u17bb\u1784\u1794\u1793\u17d2\u1790\u17c2\u1798",
-                    youdonthavepermissionseditthislockedform:
-                      "\u17a2\u17d2\u1793\u1780\u1798\u17b7\u1793\u1798\u17b6\u1793\u179f\u17b7\u1791\u17d2\u1792\u17b7\u1780\u17c2\u1794\u17d2\u179a\u17c2\u1791\u1798\u17d2\u179a\u1784\u17cb\u1793\u17c1\u17c7\u1791\u17c1",
-                    success: "\u1787\u17c4\u1782\u1787\u17d0\u1799!",
-                    newprovider:
-                      "\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1790\u17d2\u1798\u17b8",
-                    backtoavailablecourses:
-                      "\u178f\u17d2\u179a\u17a1\u1794\u17cb\u1791\u17c5\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1791\u17b6\u17c6\u1784\u17a2\u179f\u17cb",
-                    cpd: "\u17a2\u179c\u1794",
-                    approvedcourses:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1794\u17b6\u1793\u17a2\u1793\u17bb\u1798\u17d0\u178f",
-                    validusers:
-                      "\u17a2\u17d2\u1793\u1780\u1794\u17d2\u179a\u17be\u178a\u17c2\u179b\u1798\u17b6\u1793\u179f\u17bb\u1796\u179b\u1797\u17b6\u1796",
-                    timeupdated:
-                      "\u1796\u17c1\u179b\u179c\u17c1\u179b\u17b6\u1794\u17b6\u1793\u1792\u17d2\u179c\u17be\u1794\u1785\u17d2\u1785\u17bb\u1794\u17d2\u1794\u1793\u17d2\u1793\u1797\u17b6\u1796",
-                    course:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    coursedate:
-                      "\u1780\u17b6\u179b\u1794\u179a\u17b7\u1785\u17d2\u1786\u17c1\u1791\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    enrollmentdate:
-                      "\u1780\u17b6\u179b\u1794\u179a\u17b7\u1785\u17d2\u1786\u17c1\u1791\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7",
-                    add: "\u1794\u1793\u17d2\u1790\u17c2\u1798",
-                    financialaid:
-                      "\u1780\u17b6\u179a\u1782\u17b6\u17c6\u1791\u17d2\u179a\u1790\u179c\u17b7\u1780\u17b6",
-                    rating:
-                      "\u1780\u17b6\u179a\u179c\u17b6\u1799\u178f\u1798\u17d2\u179b\u17c3",
-                    timecreated:
-                      "\u1796\u17c1\u179b\u179c\u17c1\u179b\u17b6\u1794\u1784\u17d2\u1780\u17be\u178f",
-                    coursedatestatus:
-                      "\u179f\u17d2\u1790\u17b6\u1793\u1797\u17b6\u1796\u1780\u17b6\u179b\u1794\u179a\u17b7\u1785\u17d2\u1786\u17c1\u1791\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    enrollmentdatestatus:
-                      "\u179f\u17d2\u1790\u17b6\u1793\u1797\u17b6\u1796\u1780\u17b6\u179b\u1794\u179a\u17b7\u1785\u17d2\u1786\u17c1\u1791\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7",
-                    providers:
-                      "\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    submitanewcourse:
-                      "\u178a\u17b6\u1780\u17cb\u179f\u17d2\u1793\u17be\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1790\u17d2\u1798\u17b8",
-                    future: "\u17a2\u1793\u17b6\u1782\u178f",
-                    expired: "\u1795\u17bb\u178f\u1780\u17c6\u178e\u178f\u17cb",
-                    filter: "\u1785\u1798\u17d2\u179a\u17b6\u1789\u17cb",
-                    sort: "\u178f\u1798\u17d2\u179a\u17c0\u1794",
-                    providername:
-                      "\u1788\u17d2\u1798\u17c4\u17c7\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    desc: "\u179b\u17c6\u178a\u17b6\u1794\u17cb\u1785\u17bb\u17c7",
-                    asc: "\u179b\u17c6\u178a\u17b6\u1794\u17cb\u17a1\u17be\u1784",
-                    coursestartdate:
-                      "\u1780\u17b6\u179b\u1794\u179a\u17b7\u1785\u17d2\u1786\u17c1\u1791\u1785\u17b6\u1794\u17cb\u1795\u17d2\u178f\u17be\u1798\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    courseenddate:
-                      "\u1780\u17b6\u179b\u1794\u179a\u17b7\u1785\u17d2\u1786\u17c1\u1791\u1794\u1789\u17d2\u1785\u1794\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    yes: "\u1794\u17b6\u1791\/\u1785\u17b6\u179f",
-                    no: "\u1791\u17c1",
-                    contactinfo:
-                      "\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793\u1791\u17c6\u1793\u17b6\u1780\u17cb\u1791\u17c6\u1793\u1784",
-                    completed:
-                      "\u1794\u17b6\u1793\u1794\u1789\u17d2\u1785\u1794\u17cb",
-                    inprogress:
-                      "\u1780\u17c6\u1796\u17bb\u1784\u178a\u17c4\u17c7\u179f\u17d2\u179a\u17b6\u1799",
-                    reportedby:
-                      "\u1794\u17b6\u1793\u179a\u17b6\u1799\u1780\u17b6\u179a\u178e\u17cd\u178a\u17c4\u1799",
-                    submittedon:
-                      "\u1794\u17b6\u1793\u178a\u17b6\u1780\u17cb\u179f\u17d2\u1793\u17be\u1793\u17c5",
-                    coursetitle:
-                      "\u1785\u17c6\u178e\u1784\u1787\u17be\u1784\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    statuschanged:
-                      "\u179f\u17d2\u1790\u17b6\u1793\u1797\u17b6\u1796\u1794\u17b6\u1793\u1795\u17d2\u179b\u17b6\u179f\u17cb\u1794\u17d2\u178f\u17bc\u179a",
-                    nocoursefound:
-                      "\u1798\u17b7\u1793\u1798\u17b6\u1793\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    manageissues:
-                      "\u1782\u17d2\u179a\u1794\u17cb\u1782\u17d2\u179a\u1784\u1794\u1789\u17d2\u17a0\u17b6",
-                    addanewprovider:
-                      "\u1794\u1793\u17d2\u1790\u17c2\u1798\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1790\u17d2\u1798\u17b8",
-                    private: "\u17af\u1780\u1787\u1793",
-                    logintoenrol:
-                      "\u1785\u17bc\u179b\u1782\u178e\u1793\u17b8\u178a\u17be\u1798\u17d2\u1794\u17b8\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7",
-                    enrolnow:
-                      "\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7\u17a5\u17a1\u17bc\u179c\u1793\u17c1\u17c7",
-                    trainingproviders:
-                      "\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    accreditedonly:
-                      "\u178f\u17c2\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1794\u17b6\u1793\u1791\u1791\u17bd\u179b\u179f\u17d2\u1782\u17b6\u179b\u17cb\u1782\u17bb\u178e\u1797\u17b6\u1796\u1794\u17c9\u17bb\u178e\u17d2\u178e\u17c4\u17c7",
-                    sortbycoursecnt:
-                      "\u178f\u1798\u17d2\u179a\u17c0\u1794\u178f\u17b6\u1798\u1785\u17c6\u1793\u17bd\u1793\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    notifycourseproviderwhenissueisreportted:
-                      "\u1787\u17bc\u1793\u178a\u17c6\u178e\u17b9\u1784\u1791\u17c5\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1793\u17c5\u1796\u17c1\u179b\u1798\u17b6\u1793\u1780\u17b6\u179a\u179a\u17b6\u1799\u1780\u17b6\u179a\u178e\u17cd\u1796\u17b8\u1794\u1789\u17d2\u17a0\u17b6\u179b\u17be\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u179a\u1794\u179f\u17cb\u1782\u17b6\u178f\u17cb\u17d4",
-                    notifycourseproviderwhenissueisreportted_desc:
-                      "\u1794\u17d2\u179a\u179f\u17b7\u1793\u1794\u17be\u1780 \u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1793\u17b9\u1784\u1791\u1791\u17bd\u179b\u17a2\u17ca\u17b8\u1798\u17c2\u179b\u1796\u17b8\u179a\u1794\u17b6\u1799\u1780\u17b6\u179a\u178e\u17cd\u1796\u17b8\u1794\u1789\u17d2\u17a0\u17b6\u17a2\u17c6\u1796\u17b8\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u179a\u1794\u179f\u17cb\u1782\u17b6\u178f\u17cb\u17d4",
-                    notifyrequester:
-                      "\u1787\u17bc\u1793\u178a\u17c6\u178e\u17b9\u1784\u178a\u179b\u17cb\u17a2\u17d2\u1793\u1780\u179f\u17d2\u1793\u17be",
-                    selectanaccreditedcourse:
-                      "\u1787\u17d2\u179a\u17be\u179f\u179a\u17be\u179f\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1794\u17b6\u1793\u1791\u1791\u17bd\u179b\u179f\u17d2\u1782\u17b6\u179b\u17cb",
-                    linkedcpdcourse:
-                      "\u179c\u1782\u17d2\u1782\u1796\u17b8 HRCPD \u178a\u17c2\u179b\u1794\u17b6\u1793\u1797\u17d2\u1787\u17b6\u1794\u17cb",
-                    pendingapproval:
-                      "\u179a\u1784\u1785\u17b6\u17c6\u1780\u17b6\u179a\u17a2\u1793\u17bb\u1798\u17d0\u178f",
-                    unlink: "\u1795\u17d2\u178f\u17b6\u1785\u17cb",
-                    linkedclassroom:
-                      "\u1790\u17d2\u1793\u17b6\u1780\u17cb\u178a\u17c2\u179b\u1794\u17b6\u1793\u1797\u17d2\u1787\u17b6\u1794\u17cb",
-                    accreditedcourseinhrcpd:
-                      "\u179c\u1782\u17d2\u1782\u178a\u17c2\u179b\u1794\u17b6\u1793\u1795\u17d2\u178f\u179b\u17cb\u1780\u17d2\u179a\u17c1\u178c\u17b8\u178f\u1780\u17d2\u1793\u17bb\u1784 HRCPD",
-                    apiendpoint: "API Endpoint",
-                    apiendpoint_desc: "HRMIS API endpoint",
-                    apikey: "API Key",
-                    apikey_desc:
-                      "HRMIS API key or Header Secret. This value is given by CPDMO and is required for private API requests.",
-                    anissuehasbeenreportedfor:
-                      "\u1794\u1789\u17d2\u17a0\u17b6\u1798\u17bd\u1799\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u179a\u17b6\u1799\u1780\u17b6\u179a\u178e\u17cd\u179f\u1798\u17d2\u179a\u17b6\u1794\u17cb\u17d6 ",
-                    accreditedlabel:
-                      "\u1794\u17b6\u1793\u1791\u1791\u17bd\u179b\u179f\u17d2\u1782\u17b6\u179b\u17cb",
-                    cpdcreditsshort: "\u1780\u17d2\u179a\u17c1.",
-                    learningoutcomes_help:
-                      "\u1794\u1789\u17d2\u1785\u17bc\u179b\u179b\u1791\u17d2\u1792\u1795\u179b\u1793\u17c3\u1780\u17b6\u179a\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1798\u17d2\u178f\u1784\u1798\u17bd\u1799\u1787\u17bd\u179a\u17d4",
-                    courseimage_help:
-                      "\u1782\u17bd\u179a\u1794\u17d2\u179a\u17be\u179f\u1798\u1798\u17b6\u178f\u17d2\u179a 16:9",
-                    prerequisites_help:
-                      "\u1794\u1789\u17d2\u1785\u17bc\u179b\u179b\u1780\u17d2\u1781\u1781\u17d0\u178e\u17d2\u178c\u178a\u17c2\u179b\u178f\u17d2\u179a\u17bc\u179c\u1798\u17b6\u1793\u1798\u17d2\u178f\u1784\u1798\u17bd\u1799\u1787\u17bd\u179a\u17d4",
-                    forminstructions:
-                      "\u179f\u17c1\u1785\u1780\u17d2\u178f\u17b8\u178e\u17c2\u1793\u17b6\u17c6",
-                    forminstructions_desc:
-                      "These instructions will be shown at the top of the form when user requests a new course.",
-                    privatefileinstructions: "Instructions for private files",
-                    privatefileinstructions_desc:
-                      "If set, these instructions will be shown above the private file upload field.",
-                    emailtemplate: "Course request email template",
-                    emailtemplate_desc:
-                      "This template will be used to send email to the platform manager(s) when a new course is requested.",
-                    approvedemailtemplate:
-                      "Course request updated email template",
-                    approvedemailtemplate_desc:
-                      "This template will be used to send email to the requester when a course request is updated.",
-                    seeinstructions:
-                      "\u1798\u17be\u179b\u179f\u17c1\u1785\u1780\u17d2\u178f\u17b8\u178e\u17c2\u1793\u17b6\u17c6",
-                    externalcourse_help:
-                      "\u179f\u1798\u17d2\u179a\u17b6\u1794\u17cb\u179a\u1794\u17b6\u1799\u1780\u17b6\u179a\u178e\u17cd\u1794\u17c9\u17bb\u178e\u17d2\u178e\u17c4\u17c7 \u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1781\u17b6\u1784\u1780\u17d2\u179a\u17c5\u1782\u17ba\u179f\u17c6\u178a\u17c5\u1791\u17c5\u179b\u17be\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1793\u17b9\u1784\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1794\u1784\u17d2\u179a\u17c0\u1793\u1793\u17c5\u1781\u17b6\u1784\u1780\u17d2\u179a\u17c5\u1790\u17d2\u1793\u17b6\u179b (\u1790\u17d2\u1793\u17b6\u179b\u178a\u1791\u17c3) \u178f\u17c2\u1780\u17b6\u179a\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7\u1785\u17bc\u179b\u179a\u17c0\u1793\u1793\u17b9\u1784\u1794\u17d2\u179a\u1796\u17d2\u179a\u17b9\u178f\u17d2\u178f\u1791\u17c5\u1780\u17d2\u1793\u17bb\u1784\u1790\u17d2\u1793\u17b6\u179b\u1793\u17c1\u17c7\u17d4",
-                    seats_help:
-                      "\u1794\u17d2\u179a\u17be 0 \u1794\u17be\u1798\u17b7\u1793\u1780\u17c6\u178e\u178f\u17cb\u1785\u17c6\u1793\u17bd\u1793\u17d4\u200b \u178f\u1798\u17d2\u179b\u17c3\u1793\u17c1\u17c7\u179f\u1798\u17d2\u179a\u17b6\u1794\u17cb\u178f\u17c2\u1780\u17b6\u179a\u1794\u1784\u17d2\u17a0\u17b6\u1789\u1793\u17c5\u179b\u17be\u1791\u17c6\u1796\u17d0\u179a\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1794\u17c9\u17bb\u178e\u17d2\u178e\u17c4\u17c7\u17d4 \u1785\u17c6\u1793\u17bd\u1793\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17c0\u1793\u1780\u17d2\u1793\u17bb\u1784\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1793\u17b9\u1784\u178f\u17d2\u179a\u17bc\u179c\u1780\u17c6\u178e\u178f\u17cb\u1780\u17d2\u1793\u17bb\u1784\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1794\u1793\u17d2\u1791\u17b6\u1794\u17cb\u1796\u17b8\u1794\u1784\u17d2\u1780\u17be\u178f\u17a0\u17be\u1799\u17d4",
-                    selectcertificatetemplate:
-                      "\u17a2\u17d2\u1793\u1780\u178f\u17d2\u179a\u17bc\u179c\u178f\u17c2\u1787\u17d2\u179a\u17be\u179f\u179a\u17be\u179f\u1796\u17bb\u1798\u17d2\u1796\u179c\u17b7\u1789\u17d2\u1789\u17b6\u1794\u1793\u1794\u178f\u17d2\u179a\u1787\u17b6\u1798\u17bb\u1793\u17d4",
-                    managemeta:
-                      "\u1782\u17d2\u179a\u1794\u17cb\u1782\u17d2\u179a\u1784{$a}",
-                    newmeta: "{$a}\u1790\u17d2\u1798\u17b8",
-                    courseupdatedsubject:
-                      "\u179f\u17d2\u1790\u17b6\u1793\u1797\u17b6\u1796\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1795\u17d2\u179b\u17b6\u179f\u17cb\u1794\u17d2\u178f\u17bc\u179a\u179f\u1798\u17d2\u179a\u17b6\u1794\u17cb {$a->coursetitle}: {$a->status}",
-                    "messageprovider:coursesubmitted":
-                      "When a CPD is submitted for approval.",
-                    "messageprovider:courseupdated":
-                      "When your submitted CPD is updated.",
-                    "messageprovider:coursereported":
-                      "When an issue is reported for your CPD.",
-                    "messageprovider:coursereportedprovider":
-                      "When an issue is reported on your CPD.",
-                    viewcourse:
-                      "\u1798\u17be\u179b\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    courserequestedsubject:
-                      "\u179f\u17c6\u178e\u17be\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1790\u17d2\u1798\u17b8: {$a->coursetitle}",
-                    visibility:
-                      "\u1780\u17b6\u179a\u1794\u1784\u17d2\u17a0\u17b6\u1789",
-                    unlisted:
-                      "\u1780\u17bb\u17c6\u178a\u17b6\u1780\u17cb\u1780\u17d2\u1793\u17bb\u1784\u1794\u1789\u17d2\u1787\u17b8",
-                    visibility_help:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1798\u17b7\u1793\u178a\u17b6\u1780\u17cb\u1780\u17d2\u1793\u17bb\u1784\u1794\u1789\u17d2\u1787\u17b8\u1793\u17b9\u1784\u1798\u17b7\u1793\u178f\u17d2\u179a\u17bc\u179c\u178a\u17b6\u1780\u17cb\u1794\u1784\u17d2\u17a0\u17b6\u1789\u1787\u17b6\u179f\u17b6\u1792\u17b6\u179a\u178e\u17c8\u1791\u17c1 \u178f\u17c2\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1793\u17c5\u178f\u17c2\u17a2\u17b6\u1785\u1795\u17d2\u1789\u17be\u178f\u17c6\u178e\u1791\u17c5\u1780\u17b6\u1793\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1793\u17c1\u17c7\u1791\u17c5\u1780\u17b6\u1793\u17cb\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17bd\u1798\u1782\u17c4\u179b\u178a\u17c5\u1794\u17b6\u1793\u17d4",
-                    nouserfound:
-                      "\u1798\u17b7\u1793\u1798\u17b6\u1793\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17bd\u1798\u1791\u17c1!",
-                    courseparticipants:
-                      "\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17bd\u1798\u1780\u17d2\u1793\u17bb\u1784\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    participants:
-                      "\u17a2\u17d2\u1793\u1780\u1785\u17bc\u179b\u179a\u17bd\u1798",
-                    grade: "\u1796\u17b7\u1793\u17d2\u1791\u17bb",
-                    idnumber:
-                      "\u179b\u17c1\u1781\u179f\u1798\u17d2\u1782\u17b6\u179b\u17cb",
-                    firstname:
-                      "\u1793\u17b6\u1798\u1781\u17d2\u179b\u17bd\u1793",
-                    lastname:
-                      "\u1793\u17b6\u1798\u178f\u17d2\u179a\u1780\u17bc\u179b",
-                    email: "\u17a2\u17ca\u17b8\u1798\u17c2\u179b",
-                    phone: "\u1791\u17bc\u179a\u179f\u17d0\u1796\u17d2\u1791",
-                    city: "\u1781\u17c1\u178f\u17d2\u178f\/\u1780\u17d2\u179a\u17bb\u1784",
-                    institution: "\u179f\u17d2\u1790\u17b6\u1794\u17d0\u1793",
-                    department: "\u178f\u17bd\u1793\u17b6\u1791\u17b8",
-                    grademax:
-                      "\u1796\u17b7\u1793\u17d2\u1791\u17bb\u17a2\u178f\u17b7\u1794\u179a\u1798\u17b6",
-                    feedback:
-                      "\u1798\u178f\u17b7\u1799\u17c4\u1794\u179b\u17cb",
-                    certificatename:
-                      "\u1788\u17d2\u1798\u17c4\u17c7\u179c\u17b7\u1789\u17d2\u1789\u17b6\u1794\u1793\u1794\u178f\u17d2\u179a",
-                    certificateid:
-                      "\u179b\u17c1\u1781\u179f\u1798\u17d2\u1782\u17b6\u179b\u17cb\u179c\u17b7\u1789\u17d2\u1789\u17b6\u1794\u1793\u1794\u178f\u17d2\u179a",
-                    fileid:
-                      "\u179b\u17c1\u1781\u179f\u1798\u17d2\u1782\u17b6\u179b\u17cb\u17af\u1780\u179f\u17b6\u179a",
-                    issuedate:
-                      "\u1780\u17b6\u179b\u1794\u179a\u17b7\u1785\u17d2\u1786\u17c1\u1791\u1785\u17c1\u1789\u179c\u17b7\u1789\u17d2\u1789\u17b6\u1794\u1793\u1794\u178f\u17d2\u179a",
-                    expirationdate:
-                      "\u1780\u17b6\u179b\u1794\u179a\u17b7\u1785\u17d2\u1786\u17c1\u1791\u1795\u17bb\u178f\u1780\u17c6\u178e\u178f\u17cb",
-                    revoked: "\u1794\u17b6\u1793\u178a\u1780\u17a0\u17bc\u178f",
-                    certificatetimecreated:
-                      "\u1794\u1784\u17d2\u1780\u17be\u178f\u1793\u17c5\u1790\u17d2\u1784\u17c3\u1791\u17b8",
-                    credittimecreated:
-                      "\u1794\u17b6\u1793\u179f\u17d2\u1793\u17be\u179f\u17bb\u17c6\u1793\u17c5\u1790\u17d2\u1784\u17c3\u1791\u17b8",
-                    activitycompletionreport:
-                      "\u1780\u17b6\u179a\u1794\u1789\u17d2\u1785\u1794\u17cb\u179f\u1780\u1798\u17d2\u1798\u1797\u17b6\u1796",
-                    coursecompletionreport:
-                      "\u1780\u17b6\u179a\u1794\u1789\u17d2\u1785\u1794\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    "cpdlist:cpddelete": "Delete own CPD entry",
-                    "cpdlist:cpddeleteother": "Delete other's CPD entry",
-                    "cpdlist:cpdedit": "Edit own CPD entry",
-                    "cpdlist:cpdeditother": "Edit other's CPD entry",
-                    "cpdlist:cpdeditlocked": "Edit locked CPD entry",
-                    "cpdlist:cpdexport": "Export CPD entries",
-                    "cpdlist:cpdmanage": "View CPD tab in manage CPD page",
-                    "cpdlist:cpdreview": "Review CPD entries",
-                    "cpdlist:cpdsubmit": "Submit CPD entry",
-                    "cpdlist:cpdviewother": "View other's CPD entries",
-                    "cpdlist:cpdviewownlist": "View own CPD list",
-                    "cpdlist:cpdviewunpublished":
-                      "View unpublished CPD entries",
-                    "cpdlist:issueadd": "Report an issue on CPD entry",
-                    "cpdlist:issuedelete": "Delete issue on CPD entry",
-                    "cpdlist:issueedit": "Edit issue on CPD entry",
-                    "cpdlist:issuemanage": "View issue tab in manage CPD page",
-                    "cpdlist:metadataadd": "Add a new metadata option",
-                    "cpdlist:metadataedit": "Edit metadata option",
-                    "cpdlist:metadatamanage":
-                      "View metadata tab in manage CPD page",
-                    "cpdlist:provideradd": "Add a new CPD provider",
-                    "cpdlist:provideredit": "Edit CPD provider",
-                    "cpdlist:providermanage":
-                      "View provider tab in manage CPD page",
-                    "cpdlist:cpdexportlist": "Export CPD list",
-                    "cpdlist:metadatadelete": "Delete metadata option",
-                    "cpdlist:providerdelete": "Delete CPD provider",
-                    cancel: "\u1794\u17c4\u17c7\u1794\u1784\u17cb",
-                    save: "\u179a\u1780\u17d2\u179f\u17b6\u1791\u17bb\u1780",
-                    reportedcourse:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1794\u17b6\u1793\u179a\u17b6\u1799\u1780\u17b6\u179a\u178e\u17cd",
-                    attachments_help:
-                      "\u17af\u1780\u179f\u17b6\u179a\u1791\u17b6\u17c6\u1784\u1793\u17c1\u17c7\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1794\u1784\u17d2\u17a0\u17b6\u1789\u1793\u17c5\u179b\u17be\u1791\u17c6\u1796\u17d0\u179a\u1796\u17d0\u178f\u17cc\u1798\u17b6\u1793\u1793\u17c3\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u17d4 \u17a2\u17d2\u1793\u1780\u17a2\u17b6\u1785\u1794\u1789\u17d2\u1785\u17bc\u179b\u17af\u1780\u179f\u17b6\u179a\u178a\u17bc\u1785\u1787\u17b6 \u178f\u17b6\u179a\u17b6\u1784\u1798\u17b6\u178f\u17b7\u1780\u17b6\u1793\u17c3\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6 \u179a\u1794\u17c0\u1794\u1794\u1784\u17cb\u1794\u17d2\u179a\u17b6\u1780\u17cb\u179f\u17c6\u179a\u17b6\u1794\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1793\u17c1\u17c7 \u1782\u1798\u17d2\u179a\u17bc\u179c\u17b7\u1789\u17d2\u1789\u17b6\u1794\u1793\u1794\u178f\u17d2\u179a\u1787\u17b6\u178a\u17be\u1798\u17d4",
-                    courses:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6",
-                    datatableinfo:
-                      "\u1794\u1784\u17d2\u17a0\u17b6\u1789 _START_ - _END_ \u1785\u17c6\u178e\u17c4\u1798 _TOTAL_ \u1787\u17bd\u179a",
-                    datatableinfoempty:
-                      "\u1794\u1784\u17d2\u17a0\u17b6\u1789 0 - 0 - 0 \u1787\u17bd\u179a",
-                    datatableinfofiltered:
-                      "(\u1785\u1798\u17d2\u179a\u17b6\u1789\u17cb\u1796\u17b8\u1787\u17bd\u179a\u179f\u179a\u17bb\u1794 _MAX_)",
-                    nofound: "\u179a\u1780\u1798\u17b7\u1793\u1783\u17be\u1789",
-                    previous: "\u1798\u17bb\u1793",
-                    next: "\u1794\u1793\u17d2\u1791\u17b6\u1794\u17cb",
-                    first: "\u178a\u17c6\u1794\u17bc\u1784",
-                    last: "\u1785\u17bb\u1784\u1780\u17d2\u179a\u17c4\u1799",
-                    requirescoursesfromhrmis:
-                      "\u1794\u1789\u17d2\u1787\u17b6\u1780\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1780\u17d2\u1793\u17bb\u1784 HRMIS \u178a\u17c2\u179b\u1794\u17b6\u1793\u17a2\u1793\u17bb\u1798\u17d0\u178f\u178a\u17c4\u1799 CPDMO",
-                    accreditedcourseinhrcpd_help:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1794\u17b6\u1793\u17a2\u1793\u17bb\u1798\u17d0\u178f\u178a\u17c4\u1799 CPDMO \u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1794\u1789\u17d2\u1785\u17bc\u179b\u1793\u17c5\u1791\u17b8\u1793\u17c1\u17c7\u17d4 \u179f\u17bc\u1798\u1787\u17d2\u179a\u17be\u179f\u179a\u17be\u179f\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u17b2\u17d2\u1799\u1794\u17b6\u1793\u178f\u17d2\u179a\u17b9\u1798\u178f\u17d2\u179a\u17bc\u179c\u17d4 \u1794\u17d2\u179a\u179f\u17b7\u1793\u1794\u17be\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u179a\u1794\u179f\u17cb\u17a2\u17d2\u1793\u1780\u1798\u17b7\u1793\u1798\u17b6\u1793\u1793\u17c5\u1791\u17b8\u1793\u17c1\u17c7\u1791\u17c1 \u179c\u17b6\u17a2\u17b6\u1785\u1798\u1780\u1796\u17b8\u1798\u17bc\u179b\u17a0\u17c1\u178f\u17bb\u1796\u17b8\u179a\u17d6 \u17e1) \u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u179a\u1794\u179f\u17cb\u17a2\u17d2\u1793\u1780\u1798\u17b7\u1793\u1794\u17b6\u1793\u17a2\u1793\u17bb\u1798\u17d0\u178f\u178a\u17c4\u1799 CPDMO \u17ac\u1798\u17b7\u1793\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1794\u1789\u17d2\u1785\u17bc\u179b\u1780\u17d2\u1793\u17bb\u1784 HRMIS \u1793\u17c4\u17a1\u17be\u1799\u17d4 \u17e2) \u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u179a\u1794\u179f\u17cb\u17a2\u17d2\u1793\u1780\u1794\u17b6\u1793\u1794\u1789\u17d2\u1785\u1794\u17cb\u179a\u17bd\u1785\u17a0\u17be\u1799\u17d4 \u1780\u17d2\u1793\u17bb\u1784\u1780\u179a\u178e\u17b8\u178e\u17b6\u1798\u17bd\u1799 \u179f\u17bc\u1798\u1791\u17b6\u1780\u17cb\u1791\u1784\u1791\u17c5\u1780\u17b6\u1793\u17cb CPDMO\u17d4",
-                    privateattachments_help:
-                      "\u1798\u17b6\u1793\u178f\u17c2\u1798\u17d2\u1785\u17b6\u179f\u17cb\u179f\u17c6\u178e\u17be \u1793\u17b7\u1784\u17a2\u17d2\u1793\u1780\u1782\u17d2\u179a\u1794\u17cb\u1782\u17d2\u179a\u1784\u1794\u178e\u17d2\u178f\u17b6\u1789\u1794\u17c9\u17bb\u178e\u17d2\u178e\u17c4\u17c7\u178a\u17c2\u179b\u17a2\u17b6\u1785\u1798\u17be\u179b\u17af\u1780\u179f\u17b6\u179a\u1791\u17b8\u1793\u17c1\u17c7\u1794\u17b6\u1793\u17d4",
-                    report:
-                      "\u179f\u17d2\u1790\u17b7\u178f\u17b7\u179f\u1784\u17d2\u1781\u17c1\u1794",
-                    "report-plural":
-                      "\u179f\u17d2\u1790\u17b7\u178f\u17b7\u179f\u1784\u17d2\u1781\u17c1\u1794",
-                    enrolments:
-                      "\u1785\u17c6\u1793\u17bd\u1793\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7",
-                    certificates:
-                      "\u179c\u17b7\u1789\u17d2\u1789\u17b6\u1794\u1793\u1794\u178f\u17d2\u179a",
-                    verifiedusers:
-                      "\u1782\u178e\u1793\u17b8\u178a\u17c2\u179b\u1794\u17b6\u1793\u1795\u17d2\u1791\u17c0\u1784\u1795\u17d2\u1791\u17b6\u178f\u17cb",
-                    deletedcourse:
-                      "\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u178a\u17c2\u179b\u1794\u17b6\u1793\u179b\u17bb\u1794",
-                    copiedtoclipboard:
-                      "\u178f\u17c6\u178e\u178f\u17d2\u179a\u17bc\u179c\u1794\u17b6\u1793\u1785\u1798\u17d2\u179b\u1784\u179a\u17bd\u1785\u179a\u17b6\u179b\u17cb!",
-                    enrollmentcount:
-                      "\u1785\u17c6\u1793\u17bd\u1793\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7",
-                    certificateclaimed:
-                      "\u179c\u17b7\u1789\u17d2\u1789\u17b6\u1794\u1793\u1794\u178f\u17d2\u179a\u178a\u17c2\u179b\u1794\u17b6\u1793\u1785\u17c1\u1789",
-                    cpdcreditclaimed:
-                      "\u1785\u17c6\u1793\u17bd\u1793\u179f\u17c6\u178e\u17be\u1780\u17d2\u179a\u17c1\u178c\u17b8\u178f\u17a2\u179c\u1794",
-                    likes:
-                      "\u1785\u17c6\u1793\u17bd\u1793\u1785\u17bc\u179b\u1785\u17b7\u178f\u17d2\u178f",
-                    noprovidersfound:
-                      "\u179a\u1780\u1798\u17b7\u1793\u1783\u17be\u1789\u17a2\u17d2\u1793\u1780\u1795\u17d2\u178f\u179b\u17cb\u179c\u1782\u17d2\u1782\u179f\u17b7\u1780\u17d2\u179f\u17b6\u1791\u17c1",
-                    systemcohortdescription:
-                      "DO NOT DELETE OR RENAME THIS COHORT. <br>This cohort is used by the MOEYS CPD plugin to manage training provider members in {$a}.",
-                    creatorcommunityprovider: "Creator community provider",
-                    creatorcommunityprovider_desc:
-                      "Select a provider to be the creator community provider. This will be for courses that are created by the individual contributors.",
-                    creatorcommunitybadgerequirement:
-                      "Require badge for creator community provider",
-                    creatorcommunitybadgerequirement_desc:
-                      "If enabled, users must have one of the creator community provider badges below to be able to create courses as individual provider.",
-                    creatorcommunitybadgerequirementtext:
-                      "Creator community badge",
-                    creatorcommunitybadgerequirementtext_desc:
-                      "Enter the ids of the creator community provider badges. Separate multiple ids by comma. Users must have one of these badges to be able to create courses as individual provider.",
-                    rewardsforcreatorcommunitycourses:
-                      "Available reward options for creator community courses",
-                    rewardsforcreatorcommunitycourses_desc:
-                      "Select the reward options that are available for creator community courses.",
-                    requireprivatefiles: "Require private files",
-                    requireprivatefiles_desc:
-                      "If enabled, users must upload at least one private file to be able to submit a course request. Users with capability (enrol\/cpdlist:cpdmanage) are exempted from this requirement. You can also set the instructions for the private file upload field below.",
-                    myorgcourses: "My organizations' courses",
-                    editprovider: "Edit provider",
-                    enrolended:
-                      "\u1780\u17b6\u179a\u1785\u17bb\u17c7\u1788\u17d2\u1798\u17c4\u17c7\u1794\u17b6\u1793\u1794\u1789\u17d2\u1785\u1794\u17cb",
-                    managemembership:
-                      "\u1782\u17d2\u179a\u1794\u17cb\u1782\u17d2\u179a\u1784\u179f\u1798\u17b6\u1787\u17b7\u1780",
-                  },
-                  theme_boost_moeys: {
-                    cannotopenpdffile:
-                      "\u1798\u17b7\u1793\u17a2\u17b6\u1785\u1794\u1784\u17d2\u17a0\u17b6\u1789\u17af\u1780\u179f\u17b6\u179a PDF \u1793\u17c1\u17c7\u1794\u17b6\u1793\u179b\u17be\u17a7\u1794\u1780\u179a\u178e\u17cd\u1793\u17c1\u17c7\u1791\u17c1\u17d4 \u179f\u17bc\u1798\u1791\u17b6\u1789\u1799\u1780\u17d4",
-                    cannotopenfile:
-                      "\u1798\u17b7\u1793\u17a2\u17b6\u1785\u1794\u17be\u1780\u17af\u1780\u179f\u17b6\u179a\u1794\u17b6\u1793\u1791\u17c1\u17d4 \u179f\u17bc\u1798\u1791\u17b6\u1789\u1799\u1780\u17d4",
-                    download: "\u1791\u17b6\u1789\u1799\u1780",
-                    close: "\u1794\u17b7\u1791",
-                  },
-                  local_linktelegram: {
-                    noaccountfound:
-                      "\u1798\u17b7\u1793\u1798\u17b6\u1793\u1782\u178e\u1793\u17b8\u178e\u17b6\u1794\u17b6\u1793\u1797\u17d2\u1787\u17b6\u1794\u17cb\u1793\u17b9\u1784\u1782\u178e\u1793\u17b8\u178f\u17c1\u179b\u17c1\u1780\u17d2\u179a\u17b6\u1798\u1793\u17c1\u17c7\u1791\u17c1\u17d4",
-                  },
-                  debug: {
-                    debuginfo: "Debug info",
-                    line: "Line",
-                    stacktrace: "Stack trace",
-                  },
-                  langconfig: { labelsep: ":" },
-                };
-                //]]>
-              </script>
-              <script>
-                //<![CDATA[
                 (function () {
                   Y.use("moodle-filter_mathjaxloader-loader", function () {
                     M.filter_mathjaxloader.configure({
@@ -4248,7 +2805,7 @@
           <div class="modal-header bg-light">
             <h5 class="modal-title" id="moeysextramodalLabel">
               <img
-                src="../img/logo_nss_o1.png"
+                src="logo_nss_o1.png"
                 height="30"
                 alt=""
                 class="mr-2"
@@ -4261,12 +2818,17 @@
           </div>
           <div class="modal-body p-0">
             <p class="m-0 px-3 py-2 border-bottom moeys-item">
-              <small class="text-muted d-block mb-2"
-                >Ladies and Gentlemen
-                You can search for information and register your child through this official website.
-                Please note that all resumes and other school information will be kept private and will not be shared with the public.
-                Thank you !!!</small
-              >
+              <small class="text-muted d-block mb-2">
+                The school is well aware that most students and guardians, especially students, often spend almost all their time on digital devices after free time from school or work. Spending time on these devices can have two main effects: positive and negative, depending on the individual. We know that the evolution of technology is becoming more advanced, and Cambodian citizens who are skilled in using technology are still limited.
+                <br />
+                <strong style="color: blue">*For the above reasons, the school has created this official website with the following objectives: </strong><br />
+                1. Orient students and guardians to understand how to use digital systems safely.<br />
+                2. Promote the curriculum as well as various competitive activities that the school has launched and held.<br />
+                3. Expand the understanding of the digital system to the guardians of all new schools and communities. 
+                <br />
+                4. Adapt and adapt to the situation.<br />
+                5. Train students to use digital systems for the right purpose.
+              </small>
             </p>
           </div>
         </div>
