@@ -1,9 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      .marquee-container {
+        width: 100%;
+        background-color: #f8f9fa;
+        padding: 15px 0;
+      }
+
+      .marquee-content {
+        display: flex;
+        animation: marquee 20s linear infinite;
+      }
+
+      .marquee-item {
+        flex: 0 0 auto;
+        padding: 0 20px;
+        font-size: 1.2rem;
+        color: #495057;
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+      /* Optional: Pause animation on hover */
+      .marquee-container:hover .marquee-content {
+        animation-play-state: paused;
+      }
+    </style>
     <meta charset="UTF-8" />
     <!--link logo-->
-    <link rel="icon" href="logo_nss_o1.png" />
+    <link rel="icon" href="../img/logo_nss_o1.png" />
     <!--link boostrap-->
     <link
       rel="stylesheet"
@@ -4535,40 +4567,46 @@
                     >
                     Follow the school via
                     </h5>
-                    <a
-                      href="https://facebook.com"
-                      title="Facebook"
-                      target="_blank"
-                      ><i
-                        class="fa-brands fa-facebook fa-2x text-white mr-2"
-                      ></i></a
-                    ><a
-                      href="https://www.youtube.com"
-                      title="YouTube"
-                      target="_blank"
-                      ><i
-                        class="fa-brands fa-youtube fa-2x text-white mr-2"
-                      ></i></a
-                    ><a
-                      href="#"
-                      title="Instagram"
-                      target="_blank"
-                      ><i
-                        class="fa-brands fa-instagram fa-2x text-white mr-2"
-                      ></i></a
-                    ><a
-                      href="https://t.me/+cYnhDiKCGPMzYjk1"
-                      title="Telegram"
-                      target="_blank"
-                      ><i
-                        class="fa-brands fa-telegram fa-2x text-white mr-2"
-                      ></i></a
-                    ><a
-                      href="index_change.html"
-                      title="Website"
-                      target="_blank"
-                      ><i class="fa fa-globe fa-2x text-white mr-2"></i
-                    ></a>
+                    <div class="container text-center font-weight-bold text-white">
+                      <div class="marquee-container overflow-hidden  shadow-sm" style="background-color: #2a76c0; position: relative; right: 3rem;">
+                        <div class="marquee-content d-flex align-items-center">
+                          <a
+                          href="https://facebook.com"
+                          title="Facebook"
+                          target="_blank"
+                          ><i
+                            class="fa-brands fa-facebook fa-2x text-white mr-2"
+                          ></i></a
+                        ><a
+                          href="https://www.youtube.com"
+                          title="YouTube"
+                          target="_blank"
+                          ><i
+                            class="fa-brands fa-youtube fa-2x text-white mr-2"
+                          ></i></a
+                        ><a
+                          href="#"
+                          title="Instagram"
+                          target="_blank"
+                          ><i
+                            class="fa-brands fa-instagram fa-2x text-white mr-2"
+                          ></i></a
+                        ><a
+                          href="https://t.me/+cYnhDiKCGPMzYjk1"
+                          title="Telegram"
+                          target="_blank"
+                          ><i
+                            class="fa-brands fa-telegram fa-2x text-white mr-2"
+                          ></i></a
+                        ><a
+                          href="index_change.html"
+                          title="Website"
+                          target="_blank"
+                          ><i class="fa fa-globe fa-2x text-white mr-2"></i
+                        ></a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="col-md-4 col-sm-12" style="position:relative; top:1rem;">
                     <ul class="list-unstyled">
@@ -4590,7 +4628,13 @@
                 style="background-color: #0f6cbf !important"
               >
                 <div class="container text-center font-weight-bold text-white">
-                  @2025-New Seed School official website
+                  <div class="marquee-container overflow-hidden bg-primary shadow-sm">
+                    <div class="marquee-content d-flex align-items-center">
+                      <h1 style=" font-size: 15px;">
+                        @2025-New Seed School official website
+                      </h1>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
