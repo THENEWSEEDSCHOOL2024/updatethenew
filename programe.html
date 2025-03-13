@@ -1,7 +1,7 @@
 <html dir="ltr" lang="km" xml:lang="km" class="yui3-js-enabled">
   <head>
     <!--link logo-->
-    <link rel="icon" href="logo_nss_o1.png" />
+    <link rel="icon" href="/logo_nss_o1.png" />
     <!--link boostrap-->
     <link
       rel="stylesheet"
@@ -28,6 +28,7 @@
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>THE NEW SEED SCHOOL</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta
@@ -3456,7 +3457,7 @@
                   ភាសាខ្មែរ
                 </a>
                 <a
-                  href="#"
+                  href="programe_en.html"
                   class="dropdown-item pl-5 active"
                   role="menuitem"
                   lang="en"
@@ -3497,13 +3498,11 @@
                 ></div>
                 <a
                   href="#"
-                  class="btn btn-secondary font-weight-bold mr-1 d-none d-sm-block text-uppercase"
-                  >បង្កើតគណនី</a
-                >
-                <a
-                  href="#"
+                  data-toggle="modal"
+                  data-toggle="modal"
+                  data-target="#pratices_modal"
                   class="btn btn-primary font-weight-bold text-uppercase"
-                  >ចូលគណនី</a
+                  >ទ្រឹស្ដីនិងការអនុវត្តន៍</a
                 >
               </span>
             </div>
@@ -3655,6 +3654,7 @@
                   >
                     <div class="container text-center py-5 col-sm-12 col-md-4">
                       <h1
+                        data-aos="zoom-in-up"
                         class="d-flex align-items-center justify-content-center"
                         style="font-family: Khmer OS Moul Light"
                       >
@@ -4376,7 +4376,7 @@
           <div class="row">
             <div class="col-md-4 col-sm-12"> 
               <p class="text-light" style="text-align: left; line-height: 2rem; font-family: Kh Battambang">
-              <strong style="color: white">អំពីវេបសាយ</strong><br>
+              <strong  style="color: white">អំពីវេបសាយ</strong><br>
                ផ្សព្វផ្សាយអំំពីសាលាឱ្យកាន់តែទូលំទូលាយតាមរយៈប្រព័ន្ធអេឡិចត្រូនិកក្នុងទិសដៅឱ្យអាណាព្យាបាលនឹងសិស្សានុសិក្សាទូទាំងសកលលោកស្គាល់ពីសាលាកាន់តែច្បាស់ហើយមានទំនុកចិត្តខ្ពស់បំផុតលើសាលាពេលដែលបញ្ជូនកូនមកសិក្សានៅសាលា។
               </p>
             </div>
@@ -5147,5 +5147,36 @@
       </div>
     </div>
       <!--material_icon-->
+       <!--pratices-->
+       <div
+       class="modal fade"
+       id="pratices_modal"
+       tabindex="-1"
+       aria-labelledby="pro_modal"
+       aria-hidden="true"
+     >
+       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+         <div class="modal-content">
+           <div class="modal-header bg-light">
+             <h5 class="modal-title" id="pratices_modal">
+               <img src="logo_nss_o1.png" height="30" alt="" class="mr-2" />
+               សាលាគ្រាប់ពូជថ្មី
+             </h5>
+             <button class="close" data-dismiss="modal" aria-label="Close">
+               <i class="fa fa-times"></i>
+             </button>
+           </div>
+           <div class="modal-body p-0">
+             <p class="m-0 px-3 py-2 border-bottom moeys-item">
+               <small class="text-muted d-block mb-2"style="font-family:khmer OS Moul Light; line-height: 2rem;">
+                   គុណតម្លៃ
+                   <br />
+                 <strong style=" text-align: center;margin: auto; font-family: Kh Battambang;">សិក្សានិងរៀនលម្អិតពីទ្រឹស្តីហើយយកមកបម្លែងជាការអនុវត្តជាក់ស្ដែងតាមរយៈការពិសោធន៍ផ្សារភ្ជាប់និងលទ្ធផល​។<strong><br>
+             </p>
+           </div> 
+         </div>
+       </div>
+     </div>
+     <!--pratices-->
   </body>
 </html>
